@@ -6,31 +6,35 @@ from tkinter import filedialog
 import xml.etree.ElementTree as ET
 # Importar Tkinter para obtener la ruta de los archivos XML
 from tkinter import filedialog, messagebox
-
+from estructuras.lista_doble.listaDoble import ListaDoble
 from clases.Artista import Artista
 from clases.Imagen import Imagen
 from clases.Solicitante import Solicitante
-#from clases.SolicitudCola import SolicitudCola
+from clases.SolicitudCola import SolicitudCola
 #from clases.SolicitudPila import SolicitudPila
-#from estructuras.estructuras import (colaSolicitudes, id_logueado,
-                                     #listaArtistas, listaSolicitantes)
+from estructuras.estructuras import (colaSolicitudes, id_logueado,
+                                     listaArtistas, listaSolicitantes)
 
 # Función para manejar el inicio de sesión
 def login():
-    username = entry_username.get()
-    password = entry_password.get()
-    
-    if username == "AdminIPC" and password == "ARTIPC2":
-        messagebox.showinfo("Login", "Bienvenido Administrador")
-        open_admin_window()
-    elif username.startswith("ART-") and username[0:3] == "ART":
-        messagebox.showinfo("Login", "Bienvenido Artista")
-        open_artista_window()
-    elif username.startswith("IPC-") and username[0:3] == "IPC":
-        messagebox.showinfo("Login", "Bienvenido Solicitante")
-        open_solicitante_window()
+    global id_logueado
+    id = entry_username.get()
+        
+    pwd = entry_password.get()
+       
+    if id == "AdminIPC" and pwd == "ARTIPC2":
+            messagebox.showinfo("Login", "Bienvenido Administrador")
+            open_admin_window()
+    elif id.startswith("ART-") and id[0:3] == "ART" and listaArtistas.loginUsuario(id,pwd) == True:
+            messagebox.showinfo("Login", "Bienvenido Artista")
+            id_logueado = id
+            open_artista_window()
+    elif id.startswith("IPC-") and id[0:3] == "IPC"and listaSolicitantes.login(id,pwd) == True:
+            id_logueado = id
+            messagebox.showinfo("Login", "Bienvenido Solicitante")
+            open_solicitante_window()
     else:
-        messagebox.showerror("Error", "Credenciales incorrectas")
+            messagebox.showerror("Error", "Credenciales incorrectas")    
 
 # Función para cerrar sesión y volver al login
 def logout(window):
@@ -62,22 +66,24 @@ def open_admin_window():
 
 # Función para abrir la ventana del artista
 def open_artista_window():
+    global id_logueado
     root.withdraw()
     artist_window = tk.Toplevel(root)
     artist_window.title("Panel de Artista")
     artist_window.geometry("800x600")
     
-    tk.Label(artist_window, text="Bienvenido Artista").pack(pady=20)
+    tk.Label(artist_window, text="Bienvenido Artista "+ id_logueado).pack(pady=20)
     tk.Button(artist_window, text="Cerrar Sesión", command=lambda: logout(artist_window)).place(x=570, y=10)
 
 # Función para abrir la ventana del solicitante
 def open_solicitante_window():
+    global id_logueado
     root.withdraw()
     applicant_window = tk.Toplevel(root)
     applicant_window.title("Ventana Solicitante")
     applicant_window.geometry("800x600")
     
-    tk.Label(applicant_window, text="Bienvenido Solicitante").pack(pady=20)
+    tk.Label(applicant_window, text="Bienvenido Solicitante " + id_logueado).pack(pady=20)
     tk.Button(applicant_window, text="Cerrar Sesión", command=lambda: logout(applicant_window)).place(x=570, y=10)
 
 # Funciones para cargar archivos .xml
@@ -86,22 +92,85 @@ def cargar_solicitantes():
     if ruta:
         ruta_absoluta = ruta
         ruta_parcial = ruta.split("/")[-1]
-        display_area.insert(tk.END, f"Solicitante cargado: {ruta_parcial}\n")
+         #PARSEAR EL XML
+    tree = ET.parse(ruta)
+    #Obtengo el elemento raiz
+    root = tree.getroot()
+
+    if root.tag == "solicitantes":
+        for solicitante in root:
+            id = solicitante.attrib["id"]
+            pwd = solicitante.attrib["pwd"]
+            nombre = ''
+            correo = ''
+            telefono = ''
+            direccion = ''
+            for hijo in solicitante:
+                if hijo.tag == "NombreCompleto":
+                    nombre = hijo.text
+                elif hijo.tag == "CorreoElectronico":
+                    correo = hijo.text
+                elif hijo.tag == "NumeroTelefono":
+                    telefono = hijo.text
+                elif hijo.tag == "Direccion":
+                    direccion = hijo.text
+            nuevo_solicitante = Solicitante(id,pwd,nombre,correo,telefono,direccion)
+            listaSolicitantes.insertar(nuevo_solicitante)
+
+
+        display_area.insert(tk.END, f"Solicitantes cargado: {ruta_parcial}\n")
 
 def cargar_artistas():
-    ruta = filedialog.askopenfilename(filetypes=[("XML files", "*.xml")])
+    ruta = filedialog.askopenfilename(title="Cargar Archivo", filetypes=(('Text files', '*.xml'), ('All files','*.*')))
     if ruta:
         ruta_absoluta = ruta
         ruta_parcial = ruta.split("/")[-1]
-        display_area.insert(tk.END, f"Artista cargado: {ruta_parcial}\n")
+        #PARSEAR EL XML
+    tree = ET.parse(ruta)
+        #Obtengo el elemento raiz
+    root = tree.getroot()
+
+    if root.tag == "Artistas":
+            for artista in root:
+                id = artista.attrib["id"]
+                pwd = artista.attrib["pwd"]
+                nombre = ''
+                correo = ''
+                telefono = ''
+                especialidades = ''
+                notas = ''
+                for hijo in artista:
+                    if hijo.tag == "NombreCompleto":
+                        nombre = hijo.text
+                    elif hijo.tag == "CorreoElectronico":
+                        correo = hijo.text
+                    elif hijo.tag == "NumeroTelefono":
+                        telefono = hijo.text
+                    elif hijo.tag == "Especialidades":
+                        especialidades = hijo.text
+                    elif hijo.tag == "NotasAdicionales":
+                        notas = hijo.text
+                nuevo_artista = Artista(id,pwd,nombre,correo,telefono,especialidades,notas)
+                listaArtistas.insertar(nuevo_artista)
+            display_area.insert(tk.END, f"Artistas cargado: {ruta_parcial}\n")   
 
 # Funciones para ver artistas y solicitantes cargados (simulación)
 def ver_solicitantes():
-    display_area.insert(tk.END, "Mostrando solicitantes cargados...\n")
-
+    solis = ListaDoble()
+    display_area.insert(tk.END, "Mostrando solicitantes cargados...\n" + solis.imprimirListaHaciaAdelante() )
+   
+    
 def ver_artistas():
     display_area.insert(tk.END, "Mostrando artistas cargados...\n")
-    
+
+def Solicitar():
+    global id_logueado
+    valorSacado = listaSolicitantes.sacardePilaUsuario(id_logueado)
+    while valorSacado != None:
+        nueva_solicitud = SolicitudCola(valorSacado.id,valorSacado.ruta_xml,id_logueado)
+        colaSolicitudes.enqueue(nueva_solicitud)
+        valorSacado = listaSolicitantes.sacardePilaUsuario(id_logueado)
+
 # Ventana principal
 root = tk.Tk()
 root.title("Login")

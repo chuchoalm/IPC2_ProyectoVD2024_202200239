@@ -1,6 +1,6 @@
 #from estructuras.lista_doble_circular.ListaDobleCircular import \
-   # ListaDobleCircular
-#from estructuras.pila.pila import Pila
+    #ListaDobleCircular
+from estructuras.pila.pila import Pila
 
 
 class Solicitante:
@@ -12,7 +12,7 @@ class Solicitante:
         self.telefono = telefono
         self.direccion = direccion
         #self.imagenes = ListaDobleCircular()
-        #self.pila = Pila()
+        self.pila = Pila()
     
     def __str__(self):
         return f'ID: {self.id}\\n'\
