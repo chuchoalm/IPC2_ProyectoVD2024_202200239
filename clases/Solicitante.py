@@ -1,5 +1,5 @@
-#from estructuras.lista_doble_circular.ListaDobleCircular import \
-    #ListaDobleCircular
+from estructuras.lista_doble_circular.ListaDobleCircular import \
+    ListaDobleCircular
 from estructuras.pila.pila import Pila
 
 
@@ -11,7 +11,7 @@ class Solicitante:
         self.correo = correo
         self.telefono = telefono
         self.direccion = direccion
-        #self.imagenes = ListaDobleCircular()
+        self.imagenes = ListaDobleCircular()
         self.pila = Pila()
     
     def __str__(self):

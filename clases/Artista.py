@@ -1,4 +1,4 @@
-#from estructuras.lista_simple_circular.ListaCircular import ListaCircular
+from estructuras.lista_simple_circular.ListaCircular import ListaCircular
 
 
 class Artista:
@@ -10,7 +10,7 @@ class Artista:
         self.telefono = telefono
         self.especialidades = especialidades
         self.notasAdicionales = notasAdicionales
-        #self.procesadas = ListaCircular()
+        self.procesadas = ListaCircular()
 
     def __str__(self):
         return f'ID: {self.id}\\n'\

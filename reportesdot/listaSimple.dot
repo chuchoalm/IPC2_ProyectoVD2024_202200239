@@ -1,0 +1,23 @@
+digraph G {
+    rankdir=LR;
+    node[shape=record, height=.1]
+    nodo1[label="{ID: ART-223\nPassword: 6318\nNombre: Miguel Hernández\nCorreo: miguel.hernández@example.com\nTelefono: 818299431\nEspecialidades: Animación, Diseño Gráfico\nNotas Adicionales: Creativo y eficiente en pixel art.|<f1>}"];
+nodo2[label="{ID: ART-422\nPassword: 6086\nNombre: Juan Sánchez\nCorreo: juan.sánchez@mail.com\nTelefono: 236280522\nEspecialidades: Pixel Art, Concept Art\nNotas Adicionales: Gran atención al detalle en ilustraciones.|<f1>}"];
+nodo3[label="{ID: ART-812\nPassword: 9231\nNombre: Pablo Pérez\nCorreo: pablo.pérez@mail.com\nTelefono: 628903057\nEspecialidades: Ilustración Digital, Animación\nNotas Adicionales: Apto para dibujar cosas bonitas.|<f1>}"];
+nodo4[label="{ID: ART-799\nPassword: 7633\nNombre: Ana Sánchez\nCorreo: ana.sánchez@mail.com\nTelefono: 926688553\nEspecialidades: Animación, Diseño Gráfico, Ilustración Digital\nNotas Adicionales: Especialista en retratos digitales.|<f1>}"];
+nodo5[label="{ID: ART-238\nPassword: 7539\nNombre: Lucía Vargas\nCorreo: lucía.vargas@mail.com\nTelefono: 968379578\nEspecialidades: Arte 3D, Animación\nNotas Adicionales: Disponible para proyectos urgentes.|<f1>}"];
+nodo6[label="{ID: ART-593\nPassword: 9142\nNombre: Juan Martínez\nCorreo: juan.martínez@example.com\nTelefono: 387905066\nEspecialidades: Ilustración Digital, Diseño Gráfico, Animación\nNotas Adicionales: Especialista en retratos digitales.|<f1>}"];
+nodo7[label="{ID: ART-864\nPassword: 7041\nNombre: Miguel Sánchez\nCorreo: miguel.sánchez@artistmail.com\nTelefono: 632532299\nEspecialidades: Arte 3D\nNotas Adicionales: Ideal para diseño de personajes.|<f1>}"];
+nodo8[label="{ID: ART-003\nPassword: 1481\nNombre: Pablo Hernández\nCorreo: pablo.hernández@mail.com\nTelefono: 925560365\nEspecialidades: Concept Art\nNotas Adicionales: Disponible para proyectos urgentes.|<f1>}"];
+nodo9[label="{ID: ART-096\nPassword: 5373\nNombre: Elena Ramírez\nCorreo: elena.ramírez@mail.com\nTelefono: 970244057\nEspecialidades: Ilustración Digital\nNotas Adicionales: Disponible para proyectos urgentes.|<f1>}"];
+nodo10[label="{ID: ART-201\nPassword: 3031\nNombre: Lucía Sánchez\nCorreo: lucía.sánchez@pixelworld.net\nTelefono: 899269017\nEspecialidades: Pixel Art\nNotas Adicionales: Ideal para diseño de personajes.|<f1>}"];
+nodo1 -> nodo2;
+nodo2 -> nodo3;
+nodo3 -> nodo4;
+nodo4 -> nodo5;
+nodo5 -> nodo6;
+nodo6 -> nodo7;
+nodo7 -> nodo8;
+nodo8 -> nodo9;
+nodo9 -> nodo10;
+}

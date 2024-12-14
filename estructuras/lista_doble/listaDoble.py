@@ -94,8 +94,8 @@ class ListaDoble:
         archivo.close()
 
         #generamos la imagen
-        ruta_imagen = 'reportes/listaDoble.svg'
-        comando = 'dot -Tsvg ' + ruta_dot + ' -o ' + ruta_imagen
+        ruta_imagen = 'reportes/listaDoble.png'
+        comando = 'dot -Tpng ' + ruta_dot + ' -o ' + ruta_imagen
         os.system(comando)
 
         #CONVIERTO LA RUTA RELATIVA A RUTA ABSOLUTA
@@ -119,4 +119,12 @@ class ListaDoble:
                     return None
                 else:
                     return actual.valor.popPila()
+            actual = actual.siguiente
+    
+    def insertarImagenUsuario(self,id,imagen):
+        actual = self.primero
+        while actual != None:
+            if actual.valor.id == id:
+                actual.valor.insertarImagen(imagen)
+                break
             actual = actual.siguiente
