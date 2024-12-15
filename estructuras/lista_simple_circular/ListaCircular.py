@@ -86,8 +86,8 @@ class ListaCircular:
         archivo.close()
 
         #GENERAR LA IMAGEN
-        ruta_imagen = 'reportes/listaCircular.pdf'
-        comando = 'dot -Tpdf '+ruta_dot + ' -o '+ruta_imagen
+        ruta_imagen = 'reportes/listaCircular.png'
+        comando = 'dot -Tpng '+ruta_dot + ' -o '+ruta_imagen
         os.system(comando)
 
         #ABRIMOS LA IMAGEN

@@ -212,9 +212,9 @@ class MatrizDispersa:
         archivo.close()
 
         #Generamos la imagen
-        ruta_svg = 'reportes/matrizDispersa_'+id_figura+'.svg'
+        ruta_svg = 'reportes/matrizDispersa_'+id_figura+'.png'
 
-        comando = 'dot -Tsvg '+ruta_dot+' -o '+ruta_svg
+        comando = 'dot -Tpng '+ruta_dot+' -o '+ruta_svg
         os.system(comando)
 
         #Abrimos el archivo

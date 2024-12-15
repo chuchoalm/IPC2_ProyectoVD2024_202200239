@@ -39,6 +39,8 @@ def login():
 
 # Función para cerrar sesión y volver al login
 def logout(window):
+    global id_logueado
+    id_logueado = None
     window.destroy()
     entry_username.delete(0, tk.END)
     entry_password.delete(0, tk.END)
@@ -60,9 +62,9 @@ def open_admin_window():
     tk.Button(admin_window, text="Ver Artistas", command=ver_artistas).pack(pady=5)
     
     # Espacio para mostrar artistas o solicitantes cargados
-    global display_area
-    display_area = tk.Text(admin_window, width=50, height=20)
-    display_area.pack(pady=20)
+    #global display_area
+    #display_area = tk.Text(admin_window, width=50, height=20)
+    #display_area.pack(pady=20)
 
 
 # Función para abrir la ventana del artista
@@ -78,10 +80,10 @@ def open_artista_window():
 
     frame = tk.Frame(artist_window)
     frame.pack(pady=20)
-
-    tk.Button(frame, text="Aceptar").grid(row=0, column=0, pady=5)
-    tk.Button(frame, text="Ver Cola").grid(row=1, column=0, pady=5)
-    tk.Button(frame, text="Imágenes Procesadas").grid(row=2, column=0, pady=5)
+   
+    tk.Button(frame, text="Aceptar", command= AceptarSolicitud).grid(row=0, column=0, pady=5)
+    tk.Button(frame, text="Ver Cola", command= colaSolicitudes.graficar).grid(row=1, column=0, pady=5)
+    tk.Button(frame, text="Imagenes Procesadas", command= imagenes_procesadas ).grid(row=2, column=0, pady=5)
 
     # Espacio para mostrar texto
     global text_display_area
@@ -93,9 +95,20 @@ def open_artista_window():
     image_display_area = tk.Label(frame)
     image_display_area.grid(row=0, column=2, rowspan=3, padx=10)
 
-
+    if colaSolicitudes.verPrimero() == None:
+        text_display_area.insert(tk.END, f"no hay solicitudes")
+    else:
+            solicitud = colaSolicitudes.verPrimero()
+            text_display_area.insert(tk.END, f"SOLICITUD ID: {solicitud.id} " )
+            text_display_area.insert(tk.END,f"Ruta XML: {solicitud.ruta_xml}" )
+            text_display_area.insert(tk.END,f"Solicitante: {solicitud.id_solicitante}")  
+def imagenes_procesadas():
+    artista = listaArtistas.obtenerUsuario(id_logueado)
+    artista.procesadas.graficar()
 def AceptarSolicitud():
     global id_logueado
+    global id_solicitante 
+
     solicitud = colaSolicitudes.verPrimero()
     if solicitud == None:
         return
@@ -129,7 +142,6 @@ def AceptarSolicitud():
     listaSolicitantes.insertarImagenUsuario(solicitud_aceptada.id_solicitante,nueva_imagen)
 
 
-
 # Función para abrir la ventana del solicitante
 def open_solicitante_window():
     global id_logueado
@@ -138,17 +150,26 @@ def open_solicitante_window():
     applicant_window.title("Ventana Solicitante")
     applicant_window.geometry("800x600")
     
+    solicitante:Solicitante = listaSolicitantes.buscar(id_logueado)
+    
+    imagen = None
+
     tk.Label(applicant_window, text="Bienvenido Solicitante " + id_logueado).pack(pady=20)
     tk.Button(applicant_window, text="Cerrar Sesión", command=lambda: logout(applicant_window)).place(x=570, y=10)
 
      # Frame para los botones y áreas de visualización
     frame = tk.Frame(applicant_window)
     frame.pack(pady=20)
-
+    label_imagen = tk.Label(root) 
+    label_imagen.pack(expand=True) 
+    boton_anterior = tk.Button(root, text="Anterior", command=anterior) 
+    boton_anterior.pack(side=tk.LEFT, padx=10, pady=10) 
+    boton_siguiente = tk.Button(root, text="Siguiente", command=siguiente) 
+    boton_siguiente.pack(side=tk.RIGHT, padx=10, pady=10)
     # Botones para solicitar, ver galería, cargar figura, ver pila y ver lista
-    tk.Button(frame, text="Solicitar").grid(row=0, column=0, pady=5)
-    tk.Button(frame, text="Ver Galería", command=open_gallery_window).grid(row=1, column=0, pady=5)
-    tk.Button(frame, text="Cargar Figura").grid(row=2, column=0, pady=5)
+    tk.Button(frame, text="Solicitar" , command= Solicitar).grid(row=2, column=0, pady=5)
+    tk.Button(frame, text="Ver Galería", command=open_gallery_window).grid(row=0, column=0, pady=5)
+    tk.Button(frame, text="Cargar Figura", command=CargarXMLFiguras).grid(row=1, column=0, pady=5)
     tk.Button(frame, text="Ver Pila", command=ver_pila).grid(row=3, column=0, pady=5)
     tk.Button(frame, text="Ver Lista", command=ver_lista).grid(row=4, column=0, pady=5)
 
@@ -159,6 +180,15 @@ def open_solicitante_window():
 
 # Función para abrir la ventana de galería
 def open_gallery_window():
+    global id_logueado
+    solicitante:Solicitante = listaSolicitantes.buscar(id_logueado)
+    imagen = None
+    if len(solicitante.imagenes) != 0:
+        imagen:Imagen = solicitante.imagenes.primero.valor
+        if imagen == None:
+            print('---------------NO HAY IMAGENES------------')
+        else:
+            ImagenActual(imagen)
     gallery_window = tk.Toplevel(root)
     gallery_window.title("Galería")
     gallery_window.geometry("900x600")
@@ -167,22 +197,62 @@ def open_gallery_window():
     frame = tk.Frame(gallery_window)
     frame.pack(pady=20)
 
+    
+
     # Botones de navegación y espacio para mostrar imágenes
-    tk.Button(frame, text="Anterior").grid(row=0, column=0, pady=5)
+    tk.Button(frame, text="Anterior", command= anterior).grid(row=0, column=0, pady=5)
     tk.Button(frame, text="Siguiente").grid(row=0, column=2, pady=5)
     global gallery_image_display_area
     gallery_image_display_area = tk.Label(frame)
     gallery_image_display_area.grid(row=0, column=1, padx=10)
 
+def anterior():
+    global id_logueado
+    solicitante:Solicitante = listaSolicitantes.buscar(id_logueado)
+    imagen = None
+    if len(solicitante.imagenes) != 0:
+        imagen:Imagen = solicitante.imagenes.primero.valor
+        if imagen == None:
+            print('---------------NO HAY IMAGENES------------')
+        else:
+            ImagenActual(imagen)
+    
+            imagen = solicitante.imagenes.obtenerAnterior(imagen.id)
+            cargar_imagen(imagen.ruta, gallery_image_display_area)
+
+def siguiente():
+    global id_logueado
+    solicitante:Solicitante = listaSolicitantes.buscar(id_logueado)
+    imagen = None
+    if len(solicitante.imagenes) != 0:
+        imagen:Imagen = solicitante.imagenes.primero.valor
+        if imagen == None:
+            print('---------------NO HAY IMAGENES------------')
+        else:
+            ImagenActual(imagen)
+            imagen = solicitante.imagenes.obtenerSiguiente(imagen.id)
+            cargar_imagen(imagen.ruta, gallery_image_display_area)
 # Función para ver pila
 def ver_pila():
-    ruta = "./Reportes/Pila_IDSolicitante.svg"
-    cargar_imagen(ruta, applicant_image_display_area)
+
+    solicitante:Solicitante = listaSolicitantes.buscar(id_logueado)
+    if solicitante.pila.isEmpty():
+        messagebox.showinfo("Pila", "La pila está vacía")
+    else:    
+        solicitante.pila.graficar()
 
 # Función para ver lista
 def ver_lista():
-    ruta = "./Reportes/Lista_Doble_IDSolicitante.svg"
-    cargar_imagen(ruta, applicant_image_display_area)
+    global id_logueado
+    print(id_logueado)
+    solicitante:Solicitante = listaSolicitantes.buscar(id_logueado)
+    imagen = None
+    print(len(solicitante.imagenes))
+    if len(solicitante.imagenes) != 0:
+        imagen:Imagen = solicitante.imagenes.primero.valor
+        solicitante:Solicitante = listaSolicitantes.buscar(id_logueado)
+        solicitante.imagenes.graficar()
+
 
 # Función para cargar imágenes
 def cargar_imagen(ruta, display_area):
@@ -228,7 +298,7 @@ def cargar_solicitantes():
             listaSolicitantes.insertar(nuevo_solicitante)
 
 
-        display_area.insert(tk.END, f"Solicitantes cargado: {ruta_parcial}\n")
+        #display_area.insert(tk.END, f"Solicitantes cargado: {ruta_parcial}\n")
 
 def cargar_artistas():
     ruta = filedialog.askopenfilename(title="Cargar Archivo", filetypes=(('Text files', '*.xml'), ('All files','*.*')))
@@ -262,7 +332,7 @@ def cargar_artistas():
                         notas = hijo.text
                 nuevo_artista = Artista(id,pwd,nombre,correo,telefono,especialidades,notas)
                 listaArtistas.insertar(nuevo_artista)
-            display_area.insert(tk.END, f"Artistas cargado: {ruta_parcial}\n")   
+            #display_area.insert(tk.END, f"Artistas cargado: {ruta_parcial}\n")   
 
 # Funciones para ver artistas y solicitantes cargados (simulación)
 def ver_solicitantes():
@@ -277,11 +347,11 @@ def ver_solicitantes():
     listaSolicitantes.graficar()  # Llamada correcta al método graficar
 
     # Crear el área de visualización (display_area)
-    display_area = tk.Text(root, height=10, width=50)
-    display_area.pack()
+    #display_area = tk.Text(root, height=10, width=50)
+    #display_area.pack()
 
     # Insertar el mensaje en el área de visualización
-    display_area.insert(tk.END, "Mostrando solicitantes cargados...\n")
+    #display_area.insert(tk.END, "Mostrando solicitantes cargados...\n")
 
     # Ruta del archivo SVG
     #svg_path = "reportes/listaDoble.svg"
@@ -310,11 +380,11 @@ def ver_artistas():
     listaArtistas.graficar()  # Llamada correcta al método graficar
 
     # Crear el área de visualización (display_area)
-    display_area = tk.Text(root, height=10, width=50)
-    display_area.pack()
+    #display_area = tk.Text(root, height=10, width=50)
+    #display_area.pack()
 
     # Insertar el mensaje en el área de visualización
-    display_area.insert(tk.END, "Mostrando Artistas cargados...\n")
+    #display_area.insert(tk.END, "Mostrando Artistas cargados...\n")
     png_path = "reportes/listaSimple.png"
 
     # Cargar la imagen PNG

@@ -89,8 +89,8 @@ class Cola:
         archivo.close()
 
         #generamos la imagen
-        ruta_imagen = 'reportes/cola.svg'
-        comando = 'dot -Tsvg '+ruta_dot+' -o '+ruta_imagen
+        ruta_imagen = 'reportes/cola.png'
+        comando = 'dot -Tpng '+ruta_dot+' -o '+ruta_imagen
         os.system(comando)
 
         #abrimos la imagen
