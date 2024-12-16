@@ -202,36 +202,84 @@ def AceptarSolicitud():
 
 # Función para abrir la ventana del solicitante
 def open_solicitante_window():
-    global id_logueado
+    global id_logueado, applicant_image_display_area
     root.withdraw()
+
+    # Crear ventana del solicitante
     applicant_window = tk.Toplevel(root)
     applicant_window.title("Ventana Solicitante")
     applicant_window.geometry("800x600")
-    
-    solicitante:Solicitante = listaSolicitantes.buscar(id_logueado)
-    
-    imagen = None
+    applicant_window.configure(bg="#1e272e")  # Fondo oscuro para resaltar los colores
 
-    tk.Label(applicant_window, text="Bienvenido Solicitante " + id_logueado).pack(pady=20)
-    tk.Button(applicant_window, text="Cerrar Sesión", command=lambda: logout(applicant_window)).place(x=570, y=10)
+    solicitante = listaSolicitantes.buscar(id_logueado)
 
-     # Frame para los botones y áreas de visualización
-    frame = tk.Frame(applicant_window)
-    frame.pack(pady=20)
-    label_imagen = tk.Label(root) 
-    label_imagen.pack(expand=True) 
+    # Etiqueta de bienvenida
+    tk.Label(
+        applicant_window,
+        text=f"Bienvenido Solicitante {id_logueado}",
+        font=("Helvetica", 16, "bold"),
+        bg="#1e272e",
+        fg="#f5f6fa"
+    ).pack(pady=20)
 
-    # Botones para solicitar, ver galería, cargar figura, ver pila y ver lista
-    tk.Button(frame, text="Solicitar" , command= Solicitar).grid(row=2, column=0, pady=5)
-    tk.Button(frame, text="Ver Galería", command=open_gallery_window).grid(row=0, column=0, pady=5)
-    tk.Button(frame, text="Cargar Figura", command=CargarXMLFiguras).grid(row=1, column=0, pady=5)
-    tk.Button(frame, text="Ver Pila", command=ver_pila).grid(row=3, column=0, pady=5)
-    tk.Button(frame, text="Ver Lista", command=ver_lista).grid(row=4, column=0, pady=5)
+    # Botón de cerrar sesión
+    tk.Button(
+        applicant_window,
+        text="Cerrar Sesión",
+        command=lambda: logout(applicant_window),
+        font=("Helvetica", 12),
+        bg="#e74c3c",
+        fg="white",
+        bd=0,
+        cursor="hand2",
+        activebackground="#c0392b",
+        activeforeground="white"
+    ).place(x=670, y=10)
+
+    # Frame para botones y áreas de visualización
+    frame = tk.Frame(applicant_window, bg="#34495e", bd=5, relief="ridge")
+    frame.place(relx=0.5, rely=0.5, anchor="center", width=750, height=450)
+
+    # Botones del menú
+    button_frame = tk.Frame(frame, bg="#34495e")
+    button_frame.pack(side="left", padx=20, pady=20)
+
+    tk.Button(
+        button_frame, text="Solicitar", command=Solicitar,
+        font=("Helvetica", 12), bg="#00cec9", fg="white", bd=0,
+        cursor="hand2", activebackground="#00b894", activeforeground="white"
+    ).pack(pady=10, fill="x")
+
+    tk.Button(
+        button_frame, text="Ver Galería", command=open_gallery_window,
+        font=("Helvetica", 12), bg="#00cec9", fg="white", bd=0,
+        cursor="hand2", activebackground="#00b894", activeforeground="white"
+    ).pack(pady=10, fill="x")
+
+    tk.Button(
+        button_frame, text="Cargar Figura", command=CargarXMLFiguras,
+        font=("Helvetica", 12), bg="#00cec9", fg="white", bd=0,
+        cursor="hand2", activebackground="#00b894", activeforeground="white"
+    ).pack(pady=10, fill="x")
+
+    tk.Button(
+        button_frame, text="Ver Pila", command=ver_pila,
+        font=("Helvetica", 12), bg="#00cec9", fg="white", bd=0,
+        cursor="hand2", activebackground="#00b894", activeforeground="white"
+    ).pack(pady=10, fill="x")
+
+    tk.Button(
+        button_frame, text="Ver Lista", command=ver_lista,
+        font=("Helvetica", 12), bg="#00cec9", fg="white", bd=0,
+        cursor="hand2", activebackground="#00b894", activeforeground="white"
+    ).pack(pady=10, fill="x")
 
     # Espacio para mostrar imágenes
-    global applicant_image_display_area
-    applicant_image_display_area = tk.Label(frame)
-    applicant_image_display_area.grid(row=0, column=1, rowspan=5, padx=10)
+    applicant_image_display_area = tk.Label(
+        frame, bg="#f5f6fa", text="No hay imagen seleccionada",
+        font=("Helvetica", 12), relief="sunken"
+    )
+    applicant_image_display_area.pack(side="right", expand=True, fill="both", padx=10, pady=10)
 
 # Función para abrir la ventana de galería
 def open_gallery_window():
