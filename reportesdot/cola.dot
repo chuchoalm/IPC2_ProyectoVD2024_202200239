@@ -2,7 +2,9 @@ digraph G {
     rankdir="RL";
     label="Cola";
     node[shape=box];
-    nodo0[label="ID: 3\nXML: D:/chuch/Documents/Proyectos/nuevo/IPC2-VD2024/Unidad4/Clase7/Entradas/Imagenes/rana.xml\nID Solicitante: IPC-001"];
-nodo1[label="ID: 2\nXML: D:/chuch/Documents/Proyectos/nuevo/IPC2-VD2024/Unidad4/Clase7/Entradas/Imagenes/capibara.xml\nID Solicitante: IPC-001"];
+    nodo0[label="ID: 2\nXML: D:/chuch/Documents/Proyectos/nuevo/IPC2-VD2024/Unidad4/Clase8/Entradas/Imagenes/capibara.xml\nID Solicitante: IPC-001"];
+nodo1[label="ID: 4\nXML: D:/chuch/Documents/Proyectos/nuevo/IPC2-VD2024/Unidad4/Clase8/Entradas/Imagenes/corazon.xml\nID Solicitante: IPC-001"];
+nodo2[label="ID: 3\nXML: D:/chuch/Documents/Proyectos/nuevo/IPC2-VD2024/Unidad4/Clase8/Entradas/Imagenes/rana.xml\nID Solicitante: IPC-001"];
 nodo0 -> nodo1;
+nodo1 -> nodo2;
 }

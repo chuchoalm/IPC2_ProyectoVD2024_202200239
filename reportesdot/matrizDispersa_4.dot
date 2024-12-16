@@ -1,0 +1,99 @@
+digraph G {
+    graph [pad="0.5", nodesep="1", ranksep="1"];
+    label="Matriz Dispersa"
+    node [shape=box, height=0.8];
+	Fila1[style="filled" label = "1" fillcolor="white" group = 0];
+	Fila2[style="filled" label = "2" fillcolor="white" group = 0];
+	Fila3[style="filled" label = "3" fillcolor="white" group = 0];
+	Fila4[style="filled" label = "4" fillcolor="white" group = 0];
+	Fila5[style="filled" label = "5" fillcolor="white" group = 0];
+
+    edge[dir="both"];
+    	Fila1 -> Fila2;
+	Fila2 -> Fila3;
+	Fila3 -> Fila4;
+	Fila4 -> Fila5;
+
+    edge[dir="both"]
+    Columna1 -> NodoF2_C1[dir=""];
+Columna2 -> NodoF1_C2[dir=""];
+NodoF1_C2 -> NodoF2_C2;
+NodoF2_C2 -> NodoF3_C2;
+Columna3 -> NodoF1_C3[dir=""];
+NodoF1_C3 -> NodoF2_C3;
+NodoF2_C3 -> NodoF3_C3;
+NodoF3_C3 -> NodoF4_C3;
+Columna4 -> NodoF2_C4[dir=""];
+NodoF2_C4 -> NodoF3_C4;
+NodoF3_C4 -> NodoF4_C4;
+NodoF4_C4 -> NodoF5_C4;
+Columna5 -> NodoF1_C5[dir=""];
+NodoF1_C5 -> NodoF2_C5;
+NodoF2_C5 -> NodoF3_C5;
+NodoF3_C5 -> NodoF4_C5;
+Columna6 -> NodoF1_C6[dir=""];
+NodoF1_C6 -> NodoF2_C6;
+NodoF2_C6 -> NodoF3_C6;
+Columna7 -> NodoF2_C7[dir=""];
+	Columna1[style="filled" label = "1" fillcolor="white" group = 1];
+	Columna2[style="filled" label = "2" fillcolor="white" group = 2];
+	Columna3[style="filled" label = "3" fillcolor="white" group = 3];
+	Columna4[style="filled" label = "4" fillcolor="white" group = 4];
+	Columna5[style="filled" label = "5" fillcolor="white" group = 5];
+	Columna6[style="filled" label = "6" fillcolor="white" group = 6];
+	Columna7[style="filled" label = "7" fillcolor="white" group = 7];
+Columna1 -> Columna2;
+Columna2 -> Columna3;
+Columna3 -> Columna4;
+Columna4 -> Columna5;
+Columna5 -> Columna6;
+Columna6 -> Columna7;
+
+	{rank = same; Columna1; Columna2; Columna3; Columna4; Columna5; Columna6; Columna7; }
+	NodoF1_C2[style="filled" label = "#FF0000" fillcolor="#FF0000" fontcolor="#FF0000" group = 2];
+	Fila1 -> NodoF1_C2[dir=""];
+	NodoF1_C2 -> NodoF1_C3;
+	NodoF1_C3[style="filled" label = "#FF0000" fillcolor="#FF0000" fontcolor="#FF0000" group = 3];
+	NodoF1_C3 -> NodoF1_C5;
+	NodoF1_C5[style="filled" label = "#FF0000" fillcolor="#FF0000" fontcolor="#FF0000" group = 5];
+	NodoF1_C5 -> NodoF1_C6;
+	NodoF1_C6[style="filled" label = "#FF0000" fillcolor="#FF0000" fontcolor="#FF0000" group = 6];
+	NodoF2_C1[style="filled" label = "#FF0000" fillcolor="#FF0000" fontcolor="#FF0000" group = 1];
+	Fila2 -> NodoF2_C1[dir=""];
+	NodoF2_C1 -> NodoF2_C2;
+	NodoF2_C2[style="filled" label = "#FF0000" fillcolor="#FF0000" fontcolor="#FF0000" group = 2];
+	NodoF2_C2 -> NodoF2_C3;
+	NodoF2_C3[style="filled" label = "#FF0000" fillcolor="#FF0000" fontcolor="#FF0000" group = 3];
+	NodoF2_C3 -> NodoF2_C4;
+	NodoF2_C4[style="filled" label = "#FF0000" fillcolor="#FF0000" fontcolor="#FF0000" group = 4];
+	NodoF2_C4 -> NodoF2_C5;
+	NodoF2_C5[style="filled" label = "#FF0000" fillcolor="#FF0000" fontcolor="#FF0000" group = 5];
+	NodoF2_C5 -> NodoF2_C6;
+	NodoF2_C6[style="filled" label = "#FF0000" fillcolor="#FF0000" fontcolor="#FF0000" group = 6];
+	NodoF2_C6 -> NodoF2_C7;
+	NodoF2_C7[style="filled" label = "#FF0000" fillcolor="#FF0000" fontcolor="#FF0000" group = 7];
+	NodoF3_C2[style="filled" label = "#FF0000" fillcolor="#FF0000" fontcolor="#FF0000" group = 2];
+	Fila3 -> NodoF3_C2[dir=""];
+	NodoF3_C2 -> NodoF3_C3;
+	NodoF3_C3[style="filled" label = "#FF0000" fillcolor="#FF0000" fontcolor="#FF0000" group = 3];
+	NodoF3_C3 -> NodoF3_C4;
+	NodoF3_C4[style="filled" label = "#FF0000" fillcolor="#FF0000" fontcolor="#FF0000" group = 4];
+	NodoF3_C4 -> NodoF3_C5;
+	NodoF3_C5[style="filled" label = "#FF0000" fillcolor="#FF0000" fontcolor="#FF0000" group = 5];
+	NodoF3_C5 -> NodoF3_C6;
+	NodoF3_C6[style="filled" label = "#FF0000" fillcolor="#FF0000" fontcolor="#FF0000" group = 6];
+	NodoF4_C3[style="filled" label = "#FF0000" fillcolor="#FF0000" fontcolor="#FF0000" group = 3];
+	Fila4 -> NodoF4_C3[dir=""];
+	NodoF4_C3 -> NodoF4_C4;
+	NodoF4_C4[style="filled" label = "#FF0000" fillcolor="#FF0000" fontcolor="#FF0000" group = 4];
+	NodoF4_C4 -> NodoF4_C5;
+	NodoF4_C5[style="filled" label = "#FF0000" fillcolor="#FF0000" fontcolor="#FF0000" group = 5];
+	NodoF5_C4[style="filled" label = "#FF0000" fillcolor="#FF0000" fontcolor="#FF0000" group = 4];
+	Fila5 -> NodoF5_C4[dir=""];
+	{ rank = same; Fila1; NodoF1_C2; NodoF1_C3; NodoF1_C5; NodoF1_C6; }
+	{ rank = same; Fila2; NodoF2_C1; NodoF2_C2; NodoF2_C3; NodoF2_C4; NodoF2_C5; NodoF2_C6; NodoF2_C7; }
+	{ rank = same; Fila3; NodoF3_C2; NodoF3_C3; NodoF3_C4; NodoF3_C5; NodoF3_C6; }
+	{ rank = same; Fila4; NodoF4_C3; NodoF4_C4; NodoF4_C5; }
+	{ rank = same; Fila5; NodoF5_C4; }
+
+}

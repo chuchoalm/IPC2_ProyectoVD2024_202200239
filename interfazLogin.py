@@ -6,7 +6,6 @@ from PIL import Image, ImageTk
 import xml.etree.ElementTree as ET
 # Importar Tkinter para obtener la ruta de los archivos XML
 from tkinter import filedialog, messagebox
-from estructuras.lista_doble.listaDoble import ListaDoble
 from clases.Artista import Artista
 from clases.Imagen import Imagen
 from clases.Solicitante import Solicitante
@@ -48,67 +47,126 @@ def logout(window):
 
 # Función para abrir la ventana del administrador
 def open_admin_window():
+    
     root.withdraw()
     admin_window = tk.Toplevel(root)
     admin_window.title("Ventana Administrador")
-    admin_window.geometry("800x600")
-    
-    tk.Label(admin_window, text="Bienvenido Administrador").pack(pady=20)
-    tk.Button(admin_window, text="Cerrar Sesión", command=lambda: logout(admin_window)).place(x=570, y=10)
+    admin_window.geometry("1100x600")
+    admin_window.configure(bg="#2c3e50")
 
-    tk.Button(admin_window, text="Cargar Solicitantes", command=cargar_solicitantes).pack(pady=5)
-    tk.Button(admin_window, text="Cargar Artistas", command=cargar_artistas).pack(pady=5)
-    tk.Button(admin_window, text="Ver Solicitantes", command=ver_solicitantes).pack(pady=5)
-    tk.Button(admin_window, text="Ver Artistas", command=ver_artistas).pack(pady=5)
-    
-    # Espacio para mostrar artistas o solicitantes cargados
-    #global display_area
-    #display_area = tk.Text(admin_window, width=50, height=20)
-    #display_area.pack(pady=20)
+    tk.Label(admin_window, text="Bienvenido Administrador", font=("Helvetica", 16, "bold"), bg="#2c3e50", fg="#ecf0f1").pack(pady=20)
 
+    # Botón de Cerrar Sesión
+    tk.Button(admin_window, text="Cerrar Sesión", command=lambda: logout(admin_window), font=("Helvetica", 12), bg="#e74c3c", fg="white", bd=0, cursor="hand2", activebackground="#c0392b", activeforeground="white").place(x=870, y=10)
+
+    # principal
+    main_frame = tk.Frame(admin_window, bg="#34495e", bd=5)
+    main_frame.place(relx=0.5, rely=0.5, anchor="center", width=970, height=500)
+
+    # Botones 
+   
+    button_frame = tk.Frame(main_frame, bg="#34495e")
+    button_frame.pack(side="left", padx=20, pady=20)
+
+    tk.Button(button_frame, text="Cargar Solicitantes", command=cargar_solicitantes, font=("Helvetica", 12), bg="#1abc9c", fg="white", bd=0, cursor="hand2", activebackground="#16a085", activeforeground="white").pack(pady=10, fill="x")
+    tk.Button(button_frame, text="Cargar Artistas", command=cargar_artistas, font=("Helvetica", 12), bg="#1abc9c", fg="white", bd=0, cursor="hand2", activebackground="#16a085", activeforeground="white").pack(pady=10, fill="x")
+    tk.Button(button_frame, text="Ver Solicitantes", command=lambda: mostrar_imagen("reportes/listaDoble.png", image_area), font=("Helvetica", 12), bg="#1abc9c", fg="white", bd=0, cursor="hand2", activebackground="#16a085", activeforeground="white").pack(pady=10, fill="x")
+    tk.Button(button_frame, text="Ver Artistas", command=lambda: mostrar_imagen("reportes/listaSimple.png", image_area), font=("Helvetica", 12), bg="#1abc9c", fg="white", bd=0, cursor="hand2", activebackground="#16a085", activeforeground="white").pack(pady=10, fill="x")
+    tk.Button(button_frame, text="ver Solicitantes en grande", command=ver_solicitantes,font=("Helvetica", 12), bg="#1abc9c", fg="white", bd=0, cursor="hand2", activebackground="#16a085", activeforeground="white").pack(pady=10, fill="x")
+    tk.Button(button_frame, text="Ver Artistas en grande", command=ver_artistas,font=("Helvetica", 12), bg="#1abc9c", fg="white", bd=0, cursor="hand2", activebackground="#16a085", activeforeground="white").pack(pady=10, fill="x")
+    image_area = tk.Label(main_frame, bg="#ecf0f1", text="Seleccione una opción para mostrar la imagen", font=("Helvetica", 12), anchor="center", relief="sunken")
+    image_area.pack(side="right", expand=True, fill="both", padx=20, pady=20)
+
+def mostrar_imagen(ruta, area):
+    global id_logueado
+    if ruta == "reportes/listaSimple.png" :
+        listaArtistas.graficar()
+    elif ruta == "reportes/listaDoble.png" :
+        listaSolicitantes.graficar() 
+    elif ruta == "reportes/cola.png" :
+        colaSolicitudes.graficar()
+    elif ruta == "reportes/listaCircular.png" :
+        artista = listaArtistas.obtenerUsuario(id_logueado)
+        artista.procesadas.graficar()
+    else:
+        messagebox.showerror("Error", "No hay imágenes para mostrar.")
+
+    try:
+        img = Image.open(ruta)
+        img = img.resize((950, 75), Image.Resampling.LANCZOS)
+        photo = ImageTk.PhotoImage(img)
+        area.configure(image=photo, text="")
+        area.image = photo
+    except Exception as e:
+        area.configure(text=f"Error al cargar la imagen: {str(e)}", image="")
 
 # Función para abrir la ventana del artista
 def open_artista_window():
-    global id_logueado
+    global id_logueado, text_display_area, image_display_area,artista
+    artista = listaArtistas.obtenerUsuario(id_logueado)
     root.withdraw()
     artist_window = tk.Toplevel(root)
     artist_window.title("Panel de Artista")
-    artist_window.geometry("800x600")
-    
-    tk.Label(artist_window, text="Bienvenido Artista "+ id_logueado).pack(pady=20)
-    tk.Button(artist_window, text="Cerrar Sesión", command=lambda: logout(artist_window)).place(x=570, y=10)
+    artist_window.geometry("900x600")
+    artist_window.configure(bg="#2c3e50")
 
-    frame = tk.Frame(artist_window)
-    frame.pack(pady=20)
+    tk.Label(artist_window, text=f"Bienvenido Artista {id_logueado}", 
+             font=("Helvetica", 16, "bold"), bg="#2c3e50", fg="#ecf0f1").pack(pady=20)
+
+    tk.Button(artist_window, text="Cerrar Sesión", command=lambda: logout(artist_window), 
+              font=("Helvetica", 12), bg="#e74c3c", fg="white", bd=0, cursor="hand2", 
+              activebackground="#c0392b", activeforeground="white").place(x=690, y=10)
+
+    frame = tk.Frame(artist_window, bg="#34495e", bd=5)
+    frame.place(relx=0.5, rely=0.5, anchor="center", width=825, height=500)
+
+    # Botones
+    button_frame = tk.Frame(frame, bg="#34495e")
+    button_frame.pack(side="left", padx=20, pady=20)
+
    
-    tk.Button(frame, text="Aceptar", command= AceptarSolicitud).grid(row=0, column=0, pady=5)
-    tk.Button(frame, text="Ver Cola", command= colaSolicitudes.graficar).grid(row=1, column=0, pady=5)
-    tk.Button(frame, text="Imagenes Procesadas", command= imagenes_procesadas ).grid(row=2, column=0, pady=5)
+    tk.Button(button_frame, text="Aceptar", command=AceptarSolicitud, 
+              font=("Helvetica", 12), bg="#1abc9c", fg="white", bd=0, cursor="hand2", activebackground="#16a085", 
+              activeforeground="white").pack(pady=10, fill="x")
+    tk.Button(button_frame, text="Ver Cola", command=lambda: mostrar_imagen("reportes/cola.png", image_display_area),
+              font=("Helvetica", 12), bg="#1abc9c", fg="white", bd=0, cursor="hand2", 
+              activebackground="#16a085", activeforeground="white").pack(pady=10, fill="x")
+    tk.Button(button_frame, text="Imágenes Procesadas", 
+              command=lambda: mostrar_imagen("reportes/listaCircular.png", image_display_area), 
+              font=("Helvetica", 12), bg="#1abc9c", fg="white", bd=0, cursor="hand2", 
+              activebackground="#16a085", activeforeground="white").pack(pady=10, fill="x")
+    
+    tk.Button(button_frame, text="ver Cola en grande", command=colaSolicitudes.graficar,font=("Helvetica", 12), 
+              bg="#1abc9c", fg="white", bd=0, cursor="hand2", activebackground="#16a085", activeforeground="white").pack(pady=10, fill="x")
+    tk.Button(button_frame, text="Ver Img.Procesadas en grande", command=imagenes_procesadas,font=("Helvetica", 12), 
+              bg="#1abc9c", fg="white", bd=0, cursor="hand2", activebackground="#16a085", activeforeground="white").pack(pady=10, fill="x")
 
-    # Espacio para mostrar texto
-    global text_display_area
-    text_display_area = tk.Text(frame, width=30, height=10)
-    text_display_area.grid(row=0, column=1, rowspan=3, padx=10)
+    # Área de texto
+    text_display_area = tk.Text(frame, width=40, height=10, bg="#ecf0f1", font=("Helvetica", 12), relief="sunken")
+    text_display_area.pack(side="top", padx=10, pady=10)
 
-    # Espacio para mostrar imágenes
-    global image_display_area
-    image_display_area = tk.Label(frame)
-    image_display_area.grid(row=0, column=2, rowspan=3, padx=10)
+    # Área de imagen
+    image_display_area = tk.Label(frame, bg="#ecf0f1", text="Seleccione una opción para mostrar la imagen", font=("Helvetica", 12), anchor="center", relief="sunken")
+    image_display_area.pack(side="left", expand=True, fill="both", padx=10, pady=10)
 
-    if colaSolicitudes.verPrimero() == None:
-        text_display_area.insert(tk.END, f"no hay solicitudes")
+    actualizar_text_display_area()
+
+def actualizar_text_display_area():
+    """Actualiza el área de texto con la información del primer elemento en la cola."""
+    text_display_area.delete(1.0, tk.END)
+    if colaSolicitudes.verPrimero() is None:
+        text_display_area.insert(tk.END, "No hay solicitudes")
     else:
-            solicitud = colaSolicitudes.verPrimero()
-            text_display_area.insert(tk.END, f"SOLICITUD ID: {solicitud.id} " )
-            text_display_area.insert(tk.END,f"Ruta XML: {solicitud.ruta_xml}" )
-            text_display_area.insert(tk.END,f"Solicitante: {solicitud.id_solicitante}")  
+        solicitud = colaSolicitudes.verPrimero()
+        text_display_area.insert(tk.END, f"SOLICITUD ID: {solicitud.id}\n")
+        text_display_area.insert(tk.END, f"Ruta XML: {solicitud.ruta_xml}\n")
+        text_display_area.insert(tk.END, f"Solicitante: {solicitud.id_solicitante}")  
+
 def imagenes_procesadas():
     artista = listaArtistas.obtenerUsuario(id_logueado)
     artista.procesadas.graficar()
 def AceptarSolicitud():
     global id_logueado
-    global id_solicitante 
-
     solicitud = colaSolicitudes.verPrimero()
     if solicitud == None:
         return
@@ -140,7 +198,7 @@ def AceptarSolicitud():
     nueva_imagen = Imagen(solicitud_aceptada.id,nombre_figura,ruta)
     #insertamos el objeto a la lista doble del usuario
     listaSolicitantes.insertarImagenUsuario(solicitud_aceptada.id_solicitante,nueva_imagen)
-
+    actualizar_text_display_area()
 
 # Función para abrir la ventana del solicitante
 def open_solicitante_window():
@@ -162,10 +220,7 @@ def open_solicitante_window():
     frame.pack(pady=20)
     label_imagen = tk.Label(root) 
     label_imagen.pack(expand=True) 
-    boton_anterior = tk.Button(root, text="Anterior", command=anterior) 
-    boton_anterior.pack(side=tk.LEFT, padx=10, pady=10) 
-    boton_siguiente = tk.Button(root, text="Siguiente", command=siguiente) 
-    boton_siguiente.pack(side=tk.RIGHT, padx=10, pady=10)
+
     # Botones para solicitar, ver galería, cargar figura, ver pila y ver lista
     tk.Button(frame, text="Solicitar" , command= Solicitar).grid(row=2, column=0, pady=5)
     tk.Button(frame, text="Ver Galería", command=open_gallery_window).grid(row=0, column=0, pady=5)
@@ -180,58 +235,72 @@ def open_solicitante_window():
 
 # Función para abrir la ventana de galería
 def open_gallery_window():
-    global id_logueado
-    solicitante:Solicitante = listaSolicitantes.buscar(id_logueado)
-    imagen = None
-    if len(solicitante.imagenes) != 0:
-        imagen:Imagen = solicitante.imagenes.primero.valor
-        if imagen == None:
-            print('---------------NO HAY IMAGENES------------')
-        else:
-            ImagenActual(imagen)
+    global id_logueado, gallery_image_display_area, imagen_actual, solicitante
+
+    # Buscar solicitante
+    solicitante = listaSolicitantes.buscar(id_logueado)
+    if not solicitante or len(solicitante.imagenes) == 0:
+        messagebox.showerror("Error", "No hay imágenes para mostrar.")
+        return
+
+    # Inicializar la primera imagen
+    imagen_actual = solicitante.imagenes.primero.valor
+
+    # Crear ventana principal de galería
     gallery_window = tk.Toplevel(root)
     gallery_window.title("Galería")
     gallery_window.geometry("900x600")
+    gallery_window.configure(bg="#2c3e50")
 
-    # Frame para los botones y área de visualización
-    frame = tk.Frame(gallery_window)
-    frame.pack(pady=20)
+    tk.Label(gallery_window, text="Galería de Imágenes", font=("Helvetica", 20, "bold"), bg="#2c3e50", fg="#ecf0f1").pack(pady=20)
 
-    
 
-    # Botones de navegación y espacio para mostrar imágenes
-    tk.Button(frame, text="Anterior", command= anterior).grid(row=0, column=0, pady=5)
-    tk.Button(frame, text="Siguiente").grid(row=0, column=2, pady=5)
+    # Frame para botones y visualización
+    frame = tk.Frame(gallery_window, bg="#34495e", bd=5)
+    frame.pack(pady=20, padx=20, fill="both", expand=True)
+
+    gallery_image_display_area = tk.Label(frame, text="Cargando imagen...", bg="#34495e", fg="#ecf0f1", font=("Helvetica", 14))
+    gallery_image_display_area.pack(expand=True)
+
+    # Frame para los botones
+    button_frame = tk.Frame(gallery_window, bg="#2c3e50")
+    button_frame.pack(pady=10)
+
+    # Botón Anterior
+    tk.Button(button_frame, text="Anterior", command=ver_anterior, font=("Helvetica", 12, "bold"), bg="#1abc9c", fg="white", bd=0, cursor="hand2", activebackground="#16a085", activeforeground="white").grid(row=0, column=0, padx=10)
+
+    # Botón Siguiente
+    tk.Button(button_frame, text="Siguiente", command=ver_siguiente, font=("Helvetica", 12, "bold"), bg="#1abc9c", fg="white", bd=0, cursor="hand2", activebackground="#16a085", activeforeground="white").grid(row=0, column=1, padx=10)
+
+    # Botón Cerrar
+    tk.Button(button_frame, text="Cerrar", command=gallery_window.destroy, font=("Helvetica", 12, "bold"), bg="#e74c3c", fg="white", bd=0, cursor="hand2", activebackground="#c0392b", activeforeground="white").grid(row=0, column=2, padx=10)
+
+    # Cargar la imagen inicial
+    cargar_imagen(imagen_actual)
+
+# Función para cargar imágenes
+def cargar_imagen(imagen):
     global gallery_image_display_area
-    gallery_image_display_area = tk.Label(frame)
-    gallery_image_display_area.grid(row=0, column=1, padx=10)
+    try:
+        img = Image.open(imagen.ruta_imagen)
+        img = img.resize((300, 300), Image.Resampling.LANCZOS)
+        img_tk = ImageTk.PhotoImage(img)
+        gallery_image_display_area.configure(image=img_tk, text="")
+        gallery_image_display_area.image = img_tk  # Evita que la imagen sea eliminada por el recolector de basura
+    except Exception as e:
+        gallery_image_display_area.configure(text=f"Error al cargar imagen:\n{e}")
 
-def anterior():
-    global id_logueado
-    solicitante:Solicitante = listaSolicitantes.buscar(id_logueado)
-    imagen = None
-    if len(solicitante.imagenes) != 0:
-        imagen:Imagen = solicitante.imagenes.primero.valor
-        if imagen == None:
-            print('---------------NO HAY IMAGENES------------')
-        else:
-            ImagenActual(imagen)
-    
-            imagen = solicitante.imagenes.obtenerAnterior(imagen.id)
-            cargar_imagen(imagen.ruta, gallery_image_display_area)
+# Función para ver la imagen anterior
+def ver_anterior():
+    global imagen_actual
+    imagen_actual = solicitante.imagenes.obtenerAnterior(imagen_actual.id)
+    cargar_imagen(imagen_actual)
 
-def siguiente():
-    global id_logueado
-    solicitante:Solicitante = listaSolicitantes.buscar(id_logueado)
-    imagen = None
-    if len(solicitante.imagenes) != 0:
-        imagen:Imagen = solicitante.imagenes.primero.valor
-        if imagen == None:
-            print('---------------NO HAY IMAGENES------------')
-        else:
-            ImagenActual(imagen)
-            imagen = solicitante.imagenes.obtenerSiguiente(imagen.id)
-            cargar_imagen(imagen.ruta, gallery_image_display_area)
+# Función para ver la imagen siguiente
+def ver_siguiente():
+    global imagen_actual
+    imagen_actual = solicitante.imagenes.obtenerSiguiente(imagen_actual.id)
+    cargar_imagen(imagen_actual)
 # Función para ver pila
 def ver_pila():
 
@@ -243,28 +312,13 @@ def ver_pila():
 
 # Función para ver lista
 def ver_lista():
+
     global id_logueado
-    print(id_logueado)
+   
     solicitante:Solicitante = listaSolicitantes.buscar(id_logueado)
-    imagen = None
     print(len(solicitante.imagenes))
-    if len(solicitante.imagenes) != 0:
-        imagen:Imagen = solicitante.imagenes.primero.valor
-        solicitante:Solicitante = listaSolicitantes.buscar(id_logueado)
-        solicitante.imagenes.graficar()
-
-
-# Función para cargar imágenes
-def cargar_imagen(ruta, display_area):
-    try:
-        img = Image.open(ruta)
-        img = img.resize((300, 300), Image.ANTIALIAS)
-        img = ImageTk.PhotoImage(img)
-        display_area.config(image=img)
-        display_area.image = img
-    except Exception as e:
-        messagebox.showerror("Error", f"No se pudo cargar la imagen: {e}")
-
+    
+    solicitante.imagenes.graficar()
 
 # Funciones para cargar archivos .xml
 def cargar_solicitantes():
@@ -365,10 +419,9 @@ def ver_solicitantes():
     photo = ImageTk.PhotoImage(image)
 
     # Crear un widget Label para mostrar la imagen
-    image_label = tk.Label(root, image=photo)
-    image_label.pack()
-   
-    
+    #image_label = tk.Label(root, image=photo)
+    #image_label.pack()   
+
 def ver_artistas():
     global listaArtistas
 
@@ -392,8 +445,8 @@ def ver_artistas():
     photo = ImageTk.PhotoImage(image)
 
     # Crear un widget Label para mostrar la imagen
-    image_label = tk.Label(root, image=photo)
-    image_label.pack()
+    #image_label = tk.Label(root, image=photo)
+    #image_label.pack()
 
 def Solicitar():
     global id_logueado
@@ -427,17 +480,31 @@ def CargarXMLFiguras():
 
 # Ventana principal
 root = tk.Tk()
-root.title("Login")
-root.geometry("600x350")
+root.title("IPCART-STUDIO")
+root.geometry("600x400")
 
-tk.Label(root, text="Usuario").pack(pady=10)
-entry_username = tk.Entry(root)
-entry_username.pack(pady=10)
+root.resizable(False, False)
+root.configure(bg="#2c3e50")
 
-tk.Label(root, text="Contraseña").pack(pady=10)
-entry_password = tk.Entry(root, show="*")
-entry_password.pack(pady=10)
+# Marco para centrar y decorar el formulario
+frame = tk.Frame(root, bg="#34495e", bd=5) 
+frame.place(relx=0.5, rely=0.5, anchor="c", width=350, height=300)
 
-tk.Button(root, text="INGRESAR", command=login).pack(pady=20)
+# Título del formulario
+tk.Label(frame, text="Bienvenido", font=("Helvetica", 16, "bold"), bg="#34495e", fg="#ecf0f1").pack(pady=10)
+
+# Entrada de usuario
+tk.Label(frame, text="Usuario", font=("Helvetica", 12), bg="#34495e", fg="#ecf0f1").pack(pady=5)
+entry_username = tk.Entry(frame, font=("Helvetica", 12))
+entry_username.pack(pady=5, ipady=5, ipadx=5, fill="x")
+
+# Entrada de contraseña
+tk.Label(frame, text="Contraseña", font=("Helvetica", 12), bg="#34495e", fg="#ecf0f1").pack(pady=5)
+entry_password = tk.Entry(frame, show="*", font=("Helvetica", 12))
+entry_password.pack(pady=5, ipady=5, ipadx=5, fill="x")
+
+# Botón de login
+tk.Button(frame, text="INGRESAR", command=login, font=("Helvetica", 12, "bold"), bg="#1abc9c", fg="white", bd=0, cursor="hand2", activebackground="#16a085", activeforeground="white").pack(pady=20, fill="x")
+
 
 root.mainloop()

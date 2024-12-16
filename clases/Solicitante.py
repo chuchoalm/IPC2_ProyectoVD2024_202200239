@@ -21,6 +21,9 @@ class Solicitante:
                f'Correo: {self.correo}\\n'\
                f'Telefono: {self.telefono}\\n'\
                f'Direccion: {self.direccion}'
+    
+    def insertarImagen(self, imagen):
+        self.imagenes.insertar(imagen)
 
     def pushPila(self, valor):
         self.pila.push(valor)

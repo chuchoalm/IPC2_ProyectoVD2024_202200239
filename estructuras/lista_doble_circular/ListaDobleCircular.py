@@ -93,7 +93,7 @@ class ListaDobleCircular:
 
         #ESCRIBIMOS Y CREAMOS EL ARCHIVO DOT
         ruta_dot = 'reportesdot/listaDobleCircular.dot'
-        archivo = open(ruta_dot,'w', encoding='utf-8')
+        archivo = open(ruta_dot,'w')
         archivo.write(codigodot)
         archivo.close()
 
