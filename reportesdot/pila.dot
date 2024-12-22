@@ -1,5 +1,5 @@
 digraph G {
     rankdir=LR;
     node[shape=Mrecord];
-    Pila[xlabel="Pila" label="ID: 3\nXML: D:/chuch/Documents/Proyectos/nuevo/IPC2-VD2024/Unidad4/Clase8/Entradas/Imagenes/rana.xml|ID: 4\nXML: D:/chuch/Documents/Proyectos/nuevo/IPC2-VD2024/Unidad4/Clase8/Entradas/Imagenes/corazon.xml"];
+    Pila[xlabel="Pila" label="ID: 4\nXML: D:/chuch/Documents/Proyectos/proyecto1/IPC2_ProyectoVD2024_202200239/Archivos de calificación-20241218/Imagenes/amongus.xml|ID: 3\nXML: D:/chuch/Documents/Proyectos/proyecto1/IPC2_ProyectoVD2024_202200239/Archivos de calificación-20241218/Imagenes/rana.xml|ID: 5\nXML: D:/chuch/Documents/Proyectos/proyecto1/IPC2_ProyectoVD2024_202200239/Archivos de calificación-20241218/Imagenes/ironman.xml"];
 }

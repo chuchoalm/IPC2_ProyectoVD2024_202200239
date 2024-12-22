@@ -1,0 +1,248 @@
+<?xml version='1.0' encoding='utf-8'?>
+<Artistas>
+    <Artista id="ART-033" pwd="1100">
+        <NombreCompleto>Elena Pérez</NombreCompleto>
+        <CorreoElectronico>elena.pérez@artistmail.com</CorreoElectronico>
+        <NumeroTelefono>501082172</NumeroTelefono>
+        <Especialidades>Diseño Gráfico</Especialidades>
+        <NotasAdicionales>Especialista en retratos digitales.</NotasAdicionales>
+    </Artista>
+    <Artista id="ART-364" pwd="2749">
+        <NombreCompleto>Pablo Ramírez</NombreCompleto>
+        <CorreoElectronico>pablo.ramírez@mail.com</CorreoElectronico>
+        <NumeroTelefono>261840946</NumeroTelefono>
+        <Especialidades>Animación</Especialidades>
+        <NotasAdicionales>Especialista en retratos digitales.</NotasAdicionales>
+    </Artista>
+    <Artista id="ART-354" pwd="1078">
+        <NombreCompleto>Pablo García</NombreCompleto>
+        <CorreoElectronico>pablo.garcía@pixelworld.net</CorreoElectronico>
+        <NumeroTelefono>286149384</NumeroTelefono>
+        <Especialidades>Diseño Gráfico</Especialidades>
+        <NotasAdicionales>Disponible para proyectos urgentes.</NotasAdicionales>
+    </Artista>
+    <Artista id="ART-883" pwd="7182">
+        <NombreCompleto>Miguel Torres</NombreCompleto>
+        <CorreoElectronico>miguel.torres@artistmail.com</CorreoElectronico>
+        <NumeroTelefono>365894051</NumeroTelefono>
+        <Especialidades>Pixel Art, Arte 3D</Especialidades>
+        <NotasAdicionales>Disponible para proyectos urgentes.</NotasAdicionales>
+    </Artista>
+    <Artista id="ART-692" pwd="3115">
+        <NombreCompleto>David Sánchez</NombreCompleto>
+        <CorreoElectronico>david.sánchez@pixelworld.net</CorreoElectronico>
+        <NumeroTelefono>825337620</NumeroTelefono>
+        <Especialidades>Arte 3D</Especialidades>
+        <NotasAdicionales>Gran atención al detalle en ilustraciones.</NotasAdicionales>
+    </Artista>
+    <Artista id="ART-529" pwd="5520">
+        <NombreCompleto>Sofía Sánchez</NombreCompleto>
+        <CorreoElectronico>sofía.sánchez@example.com</CorreoElectronico>
+        <NumeroTelefono>944946530</NumeroTelefono>
+        <Especialidades>Animación, Concept Art, Arte 3D</Especialidades>
+        <NotasAdicionales>Disponible para proyectos urgentes.</NotasAdicionales>
+    </Artista>
+    <Artista id="ART-803" pwd="2762">
+        <NombreCompleto>Carlos Martínez</NombreCompleto>
+        <CorreoElectronico>carlos.martínez@example.com</CorreoElectronico>
+        <NumeroTelefono>257838398</NumeroTelefono>
+        <Especialidades>Ilustración Digital</Especialidades>
+        <NotasAdicionales>Creativo y eficiente en pixel art.</NotasAdicionales>
+    </Artista>
+    <Artista id="ART-109" pwd="9604">
+        <NombreCompleto>Pablo García</NombreCompleto>
+        <CorreoElectronico>pablo.garcía@mail.com</CorreoElectronico>
+        <NumeroTelefono>514159803</NumeroTelefono>
+        <Especialidades>Arte 3D, Concept Art</Especialidades>
+        <NotasAdicionales>Ideal para diseño de personajes.</NotasAdicionales>
+    </Artista>
+    <Artista id="ART-622" pwd="5589">
+        <NombreCompleto>María Ramírez</NombreCompleto>
+        <CorreoElectronico>maría.ramírez@mail.com</CorreoElectronico>
+        <NumeroTelefono>776408036</NumeroTelefono>
+        <Especialidades>Pixel Art, Ilustración Digital, Animación</Especialidades>
+        <NotasAdicionales>Disponible para proyectos urgentes.</NotasAdicionales>
+    </Artista>
+    <Artista id="ART-167" pwd="2462">
+        <NombreCompleto>Elena López</NombreCompleto>
+        <CorreoElectronico>elena.lópez@artistmail.com</CorreoElectronico>
+        <NumeroTelefono>945682180</NumeroTelefono>
+        <Especialidades>Animación, Arte 3D</Especialidades>
+        <NotasAdicionales>Disponible para proyectos urgentes.</NotasAdicionales>
+    </Artista>
+    <Artista id="ART-871" pwd="8271">
+        <NombreCompleto>David Sánchez</NombreCompleto>
+        <CorreoElectronico>david.sánchez@mail.com</CorreoElectronico>
+        <NumeroTelefono>669035378</NumeroTelefono>
+        <Especialidades>Pixel Art</Especialidades>
+        <NotasAdicionales>Apto para dibujar cosas bonitas.</NotasAdicionales>
+    </Artista>
+    <Artista id="ART-160" pwd="8600">
+        <NombreCompleto>Lucía Ramírez</NombreCompleto>
+        <CorreoElectronico>lucía.ramírez@pixelworld.net</CorreoElectronico>
+        <NumeroTelefono>740234911</NumeroTelefono>
+        <Especialidades>Arte 3D, Ilustración Digital</Especialidades>
+        <NotasAdicionales>Disponible para proyectos urgentes.</NotasAdicionales>
+    </Artista>
+    <Artista id="ART-825" pwd="8947">
+        <NombreCompleto>Elena Flores</NombreCompleto>
+        <CorreoElectronico>elena.flores@artistmail.com</CorreoElectronico>
+        <NumeroTelefono>834696103</NumeroTelefono>
+        <Especialidades>Arte 3D, Animación, Pixel Art</Especialidades>
+        <NotasAdicionales>Disponible para proyectos urgentes.</NotasAdicionales>
+    </Artista>
+    <Artista id="ART-276" pwd="7584">
+        <NombreCompleto>María Flores</NombreCompleto>
+        <CorreoElectronico>maría.flores@artistmail.com</CorreoElectronico>
+        <NumeroTelefono>838612212</NumeroTelefono>
+        <Especialidades>Ilustración Digital, Animación</Especialidades>
+        <NotasAdicionales>Disponible para proyectos urgentes.</NotasAdicionales>
+    </Artista>
+    <Artista id="ART-670" pwd="8665">
+        <NombreCompleto>Ana Flores</NombreCompleto>
+        <CorreoElectronico>ana.flores@example.com</CorreoElectronico>
+        <NumeroTelefono>828324714</NumeroTelefono>
+        <Especialidades>Concept Art, Pixel Art</Especialidades>
+        <NotasAdicionales>Ideal para diseño de personajes.</NotasAdicionales>
+    </Artista>
+    <Artista id="ART-479" pwd="9723">
+        <NombreCompleto>Elena Martínez</NombreCompleto>
+        <CorreoElectronico>elena.martínez@mail.com</CorreoElectronico>
+        <NumeroTelefono>552908552</NumeroTelefono>
+        <Especialidades>Pixel Art, Diseño Gráfico</Especialidades>
+        <NotasAdicionales>Apto para dibujar cosas bonitas.</NotasAdicionales>
+    </Artista>
+    <Artista id="ART-156" pwd="7711">
+        <NombreCompleto>David Vargas</NombreCompleto>
+        <CorreoElectronico>david.vargas@example.com</CorreoElectronico>
+        <NumeroTelefono>311620651</NumeroTelefono>
+        <Especialidades>Concept Art, Ilustración Digital, Diseño Gráfico</Especialidades>
+        <NotasAdicionales>Ideal para diseño de personajes.</NotasAdicionales>
+    </Artista>
+    <Artista id="ART-573" pwd="9261">
+        <NombreCompleto>David Pérez</NombreCompleto>
+        <CorreoElectronico>david.pérez@pixelworld.net</CorreoElectronico>
+        <NumeroTelefono>138904914</NumeroTelefono>
+        <Especialidades>Pixel Art</Especialidades>
+        <NotasAdicionales>Apto para dibujar cosas bonitas.</NotasAdicionales>
+    </Artista>
+    <Artista id="ART-341" pwd="7537">
+        <NombreCompleto>Ana Vargas</NombreCompleto>
+        <CorreoElectronico>ana.vargas@example.com</CorreoElectronico>
+        <NumeroTelefono>107238148</NumeroTelefono>
+        <Especialidades>Pixel Art</Especialidades>
+        <NotasAdicionales>Disponible para proyectos urgentes.</NotasAdicionales>
+    </Artista>
+    <Artista id="ART-753" pwd="8381">
+        <NombreCompleto>Pablo Sánchez</NombreCompleto>
+        <CorreoElectronico>pablo.sánchez@pixelworld.net</CorreoElectronico>
+        <NumeroTelefono>939691781</NumeroTelefono>
+        <Especialidades>Pixel Art</Especialidades>
+        <NotasAdicionales>Creativo y eficiente en pixel art.</NotasAdicionales>
+    </Artista>
+    <Artista id="ART-982" pwd="5008">
+        <NombreCompleto>María Vargas</NombreCompleto>
+        <CorreoElectronico>maría.vargas@example.com</CorreoElectronico>
+        <NumeroTelefono>520623811</NumeroTelefono>
+        <Especialidades>Animación</Especialidades>
+        <NotasAdicionales>Disponible para proyectos urgentes.</NotasAdicionales>
+    </Artista>
+    <Artista id="ART-830" pwd="5981">
+        <NombreCompleto>Ana García</NombreCompleto>
+        <CorreoElectronico>ana.garcía@pixelworld.net</CorreoElectronico>
+        <NumeroTelefono>949188989</NumeroTelefono>
+        <Especialidades>Pixel Art, Arte 3D, Ilustración Digital</Especialidades>
+        <NotasAdicionales>Ideal para diseño de personajes.</NotasAdicionales>
+    </Artista>
+    <Artista id="ART-871" pwd="2683">
+        <NombreCompleto>Elena Ramírez</NombreCompleto>
+        <CorreoElectronico>elena.ramírez@example.com</CorreoElectronico>
+        <NumeroTelefono>887833901</NumeroTelefono>
+        <Especialidades>Animación, Concept Art, Pixel Art</Especialidades>
+        <NotasAdicionales>Ideal para diseño de personajes.</NotasAdicionales>
+    </Artista>
+    <Artista id="ART-810" pwd="9394">
+        <NombreCompleto>Pablo Sánchez</NombreCompleto>
+        <CorreoElectronico>pablo.sánchez@pixelworld.net</CorreoElectronico>
+        <NumeroTelefono>902464621</NumeroTelefono>
+        <Especialidades>Arte 3D, Pixel Art</Especialidades>
+        <NotasAdicionales>Apto para dibujar cosas bonitas.</NotasAdicionales>
+    </Artista>
+    <Artista id="ART-807" pwd="6260">
+        <NombreCompleto>Pablo Hernández</NombreCompleto>
+        <CorreoElectronico>pablo.hernández@pixelworld.net</CorreoElectronico>
+        <NumeroTelefono>188974256</NumeroTelefono>
+        <Especialidades>Concept Art, Arte 3D</Especialidades>
+        <NotasAdicionales>Apto para dibujar cosas bonitas.</NotasAdicionales>
+    </Artista>
+    <Artista id="ART-430" pwd="2347">
+        <NombreCompleto>Ana Hernández</NombreCompleto>
+        <CorreoElectronico>ana.hernández@mail.com</CorreoElectronico>
+        <NumeroTelefono>274225076</NumeroTelefono>
+        <Especialidades>Diseño Gráfico, Ilustración Digital, Animación</Especialidades>
+        <NotasAdicionales>Gran atención al detalle en ilustraciones.</NotasAdicionales>
+    </Artista>
+    <Artista id="ART-841" pwd="8802">
+        <NombreCompleto>Elena Flores</NombreCompleto>
+        <CorreoElectronico>elena.flores@pixelworld.net</CorreoElectronico>
+        <NumeroTelefono>999432844</NumeroTelefono>
+        <Especialidades>Ilustración Digital, Concept Art</Especialidades>
+        <NotasAdicionales>Gran atención al detalle en ilustraciones.</NotasAdicionales>
+    </Artista>
+    <Artista id="ART-842" pwd="7917">
+        <NombreCompleto>Sofía Vargas</NombreCompleto>
+        <CorreoElectronico>sofía.vargas@example.com</CorreoElectronico>
+        <NumeroTelefono>847305581</NumeroTelefono>
+        <Especialidades>Arte 3D, Concept Art, Ilustración Digital</Especialidades>
+        <NotasAdicionales>Gran atención al detalle en ilustraciones.</NotasAdicionales>
+    </Artista>
+    <Artista id="ART-804" pwd="1625">
+        <NombreCompleto>Lucía García</NombreCompleto>
+        <CorreoElectronico>lucía.garcía@pixelworld.net</CorreoElectronico>
+        <NumeroTelefono>877968110</NumeroTelefono>
+        <Especialidades>Ilustración Digital, Pixel Art</Especialidades>
+        <NotasAdicionales>Disponible para proyectos urgentes.</NotasAdicionales>
+    </Artista>
+    <Artista id="ART-645" pwd="8448">
+        <NombreCompleto>Juan López</NombreCompleto>
+        <CorreoElectronico>juan.lópez@mail.com</CorreoElectronico>
+        <NumeroTelefono>926569507</NumeroTelefono>
+        <Especialidades>Diseño Gráfico</Especialidades>
+        <NotasAdicionales>Disponible para proyectos urgentes.</NotasAdicionales>
+    </Artista>
+    <Artista id="ART-070" pwd="9993">
+        <NombreCompleto>Sofía Flores</NombreCompleto>
+        <CorreoElectronico>sofía.flores@mail.com</CorreoElectronico>
+        <NumeroTelefono>988558875</NumeroTelefono>
+        <Especialidades>Diseño Gráfico</Especialidades>
+        <NotasAdicionales>Disponible para proyectos urgentes.</NotasAdicionales>
+    </Artista>
+    <Artista id="ART-181" pwd="3666">
+        <NombreCompleto>Pablo Flores</NombreCompleto>
+        <CorreoElectronico>pablo.flores@pixelworld.net</CorreoElectronico>
+        <NumeroTelefono>615134578</NumeroTelefono>
+        <Especialidades>Arte 3D, Diseño Gráfico, Concept Art</Especialidades>
+        <NotasAdicionales>Gran atención al detalle en ilustraciones.</NotasAdicionales>
+    </Artista>
+    <Artista id="ART-634" pwd="4247">
+        <NombreCompleto>Pablo Ramírez</NombreCompleto>
+        <CorreoElectronico>pablo.ramírez@pixelworld.net</CorreoElectronico>
+        <NumeroTelefono>952149498</NumeroTelefono>
+        <Especialidades>Ilustración Digital, Animación, Pixel Art</Especialidades>
+        <NotasAdicionales>Disponible para proyectos urgentes.</NotasAdicionales>
+    </Artista>
+    <Artista id="ART-483" pwd="3673">
+        <NombreCompleto>Juan Ramírez</NombreCompleto>
+        <CorreoElectronico>juan.ramírez@pixelworld.net</CorreoElectronico>
+        <NumeroTelefono>936105253</NumeroTelefono>
+        <Especialidades>Diseño Gráfico</Especialidades>
+        <NotasAdicionales>Creativo y eficiente en pixel art.</NotasAdicionales>
+    </Artista>
+    <Artista id="ART-330" pwd="3065">
+        <NombreCompleto>Juan Torres</NombreCompleto>
+        <CorreoElectronico>juan.torres@example.com</CorreoElectronico>
+        <NumeroTelefono>542597499</NumeroTelefono>
+        <Especialidades>Arte 3D</Especialidades>
+        <NotasAdicionales>Apto para dibujar cosas bonitas.</NotasAdicionales>
+    </Artista>
+</Artistas>

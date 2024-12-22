@@ -1,0 +1,183 @@
+<?xml version='1.0' encoding='utf-8'?>
+<solicitantes>
+    <solicitante id="IPC-001" pwd="1551">
+        <NombreCompleto>Luis Pérez</NombreCompleto>
+        <CorreoElectronico>luis.pérez@correo.com</CorreoElectronico>
+        <NumeroTelefono>73843384</NumeroTelefono>
+        <Direccion>Ciudad de Guatemala, Guatemala</Direccion>
+    </solicitante>
+    <solicitante id="IPC-002" pwd="7462">
+        <NombreCompleto>Juan Pérez</NombreCompleto>
+        <CorreoElectronico>juan.pérez@mail.com</CorreoElectronico>
+        <NumeroTelefono>36670194</NumeroTelefono>
+        <Direccion>Escuintla, Guatemala</Direccion>
+    </solicitante>
+    <solicitante id="IPC-003" pwd="4088">
+        <NombreCompleto>Jorge Hernández</NombreCompleto>
+        <CorreoElectronico>jorge.hernández@example.com</CorreoElectronico>
+        <NumeroTelefono>71031015</NumeroTelefono>
+        <Direccion>Quetzaltenango, Guatemala</Direccion>
+    </solicitante>
+    <solicitante id="IPC-004" pwd="3823">
+        <NombreCompleto>Fernanda Ramírez</NombreCompleto>
+        <CorreoElectronico>fernanda.ramírez@example.com</CorreoElectronico>
+        <NumeroTelefono>72652487</NumeroTelefono>
+        <Direccion>Escuintla, Guatemala</Direccion>
+    </solicitante>
+    <solicitante id="IPC-005" pwd="9055">
+        <NombreCompleto>Luis Martínez</NombreCompleto>
+        <CorreoElectronico>luis.martínez@mail.com</CorreoElectronico>
+        <NumeroTelefono>42954471</NumeroTelefono>
+        <Direccion>Cobán, Guatemala</Direccion>
+    </solicitante>
+    <solicitante id="IPC-006" pwd="1273">
+        <NombreCompleto>María Ruiz</NombreCompleto>
+        <CorreoElectronico>maría.ruiz@mail.com</CorreoElectronico>
+        <NumeroTelefono>59370334</NumeroTelefono>
+        <Direccion>Antigua Guatemala, Guatemala</Direccion>
+    </solicitante>
+    <solicitante id="IPC-007" pwd="8299">
+        <NombreCompleto>Juan Pérez</NombreCompleto>
+        <CorreoElectronico>juan.pérez@example.com</CorreoElectronico>
+        <NumeroTelefono>47260648</NumeroTelefono>
+        <Direccion>Antigua Guatemala, Guatemala</Direccion>
+    </solicitante>
+    <solicitante id="IPC-008" pwd="5755">
+        <NombreCompleto>María Torres</NombreCompleto>
+        <CorreoElectronico>maría.torres@correo.com</CorreoElectronico>
+        <NumeroTelefono>55857354</NumeroTelefono>
+        <Direccion>Quetzaltenango, Guatemala</Direccion>
+    </solicitante>
+    <solicitante id="IPC-009" pwd="3883">
+        <NombreCompleto>Camila Ruiz</NombreCompleto>
+        <CorreoElectronico>camila.ruiz@correo.com</CorreoElectronico>
+        <NumeroTelefono>57000165</NumeroTelefono>
+        <Direccion>Quetzaltenango, Guatemala</Direccion>
+    </solicitante>
+    <solicitante id="IPC-010" pwd="5093">
+        <NombreCompleto>María Martínez</NombreCompleto>
+        <CorreoElectronico>maría.martínez@example.com</CorreoElectronico>
+        <NumeroTelefono>46280063</NumeroTelefono>
+        <Direccion>Quetzaltenango, Guatemala</Direccion>
+    </solicitante>
+    <solicitante id="IPC-011" pwd="1139">
+        <NombreCompleto>Juan Martínez</NombreCompleto>
+        <CorreoElectronico>juan.martínez@mail.com</CorreoElectronico>
+        <NumeroTelefono>31287144</NumeroTelefono>
+        <Direccion>Cobán, Guatemala</Direccion>
+    </solicitante>
+    <solicitante id="IPC-012" pwd="7822">
+        <NombreCompleto>María Pérez</NombreCompleto>
+        <CorreoElectronico>maría.pérez@mail.com</CorreoElectronico>
+        <NumeroTelefono>49250086</NumeroTelefono>
+        <Direccion>Ciudad de Guatemala, Guatemala</Direccion>
+    </solicitante>
+    <solicitante id="IPC-013" pwd="9123">
+        <NombreCompleto>Carlos Castillo</NombreCompleto>
+        <CorreoElectronico>carlos.castillo@example.com</CorreoElectronico>
+        <NumeroTelefono>46315422</NumeroTelefono>
+        <Direccion>Quetzaltenango, Guatemala</Direccion>
+    </solicitante>
+    <solicitante id="IPC-014" pwd="2309">
+        <NombreCompleto>María Castillo</NombreCompleto>
+        <CorreoElectronico>maría.castillo@correo.com</CorreoElectronico>
+        <NumeroTelefono>38927933</NumeroTelefono>
+        <Direccion>Cobán, Guatemala</Direccion>
+    </solicitante>
+    <solicitante id="IPC-015" pwd="5297">
+        <NombreCompleto>Luis Martínez</NombreCompleto>
+        <CorreoElectronico>luis.martínez@correo.com</CorreoElectronico>
+        <NumeroTelefono>43772836</NumeroTelefono>
+        <Direccion>Quetzaltenango, Guatemala</Direccion>
+    </solicitante>
+    <solicitante id="IPC-016" pwd="7853">
+        <NombreCompleto>Ana Castillo</NombreCompleto>
+        <CorreoElectronico>ana.castillo@mail.com</CorreoElectronico>
+        <NumeroTelefono>62468648</NumeroTelefono>
+        <Direccion>Ciudad de Guatemala, Guatemala</Direccion>
+    </solicitante>
+    <solicitante id="IPC-017" pwd="8765">
+        <NombreCompleto>Diego López</NombreCompleto>
+        <CorreoElectronico>diego.lópez@mail.com</CorreoElectronico>
+        <NumeroTelefono>65539378</NumeroTelefono>
+        <Direccion>Cobán, Guatemala</Direccion>
+    </solicitante>
+    <solicitante id="IPC-018" pwd="6412">
+        <NombreCompleto>Sofía Martínez</NombreCompleto>
+        <CorreoElectronico>sofía.martínez@mail.com</CorreoElectronico>
+        <NumeroTelefono>62360789</NumeroTelefono>
+        <Direccion>Cobán, Guatemala</Direccion>
+    </solicitante>
+    <solicitante id="IPC-019" pwd="6587">
+        <NombreCompleto>Ana Martínez</NombreCompleto>
+        <CorreoElectronico>ana.martínez@mail.com</CorreoElectronico>
+        <NumeroTelefono>74002487</NumeroTelefono>
+        <Direccion>Quetzaltenango, Guatemala</Direccion>
+    </solicitante>
+    <solicitante id="IPC-020" pwd="2382">
+        <NombreCompleto>Diego López</NombreCompleto>
+        <CorreoElectronico>diego.lópez@mail.com</CorreoElectronico>
+        <NumeroTelefono>39628614</NumeroTelefono>
+        <Direccion>Cobán, Guatemala</Direccion>
+    </solicitante>
+    <solicitante id="IPC-021" pwd="7757">
+        <NombreCompleto>Ana Gómez</NombreCompleto>
+        <CorreoElectronico>ana.gómez@mail.com</CorreoElectronico>
+        <NumeroTelefono>52141447</NumeroTelefono>
+        <Direccion>Escuintla, Guatemala</Direccion>
+    </solicitante>
+    <solicitante id="IPC-022" pwd="4855">
+        <NombreCompleto>Sofía Ramírez</NombreCompleto>
+        <CorreoElectronico>sofía.ramírez@example.com</CorreoElectronico>
+        <NumeroTelefono>68620165</NumeroTelefono>
+        <Direccion>Ciudad de Guatemala, Guatemala</Direccion>
+    </solicitante>
+    <solicitante id="IPC-023" pwd="4479">
+        <NombreCompleto>Ana Ruiz</NombreCompleto>
+        <CorreoElectronico>ana.ruiz@example.com</CorreoElectronico>
+        <NumeroTelefono>76318923</NumeroTelefono>
+        <Direccion>Antigua Guatemala, Guatemala</Direccion>
+    </solicitante>
+    <solicitante id="IPC-024" pwd="8505">
+        <NombreCompleto>Luis Gómez</NombreCompleto>
+        <CorreoElectronico>luis.gómez@mail.com</CorreoElectronico>
+        <NumeroTelefono>37960289</NumeroTelefono>
+        <Direccion>Antigua Guatemala, Guatemala</Direccion>
+    </solicitante>
+    <solicitante id="IPC-025" pwd="9036">
+        <NombreCompleto>María Martínez</NombreCompleto>
+        <CorreoElectronico>maría.martínez@mail.com</CorreoElectronico>
+        <NumeroTelefono>55138116</NumeroTelefono>
+        <Direccion>Antigua Guatemala, Guatemala</Direccion>
+    </solicitante>
+    <solicitante id="IPC-026" pwd="8882">
+        <NombreCompleto>Ana Gómez</NombreCompleto>
+        <CorreoElectronico>ana.gómez@mail.com</CorreoElectronico>
+        <NumeroTelefono>33450762</NumeroTelefono>
+        <Direccion>Cobán, Guatemala</Direccion>
+    </solicitante>
+    <solicitante id="IPC-027" pwd="9426">
+        <NombreCompleto>Ana Ramírez</NombreCompleto>
+        <CorreoElectronico>ana.ramírez@correo.com</CorreoElectronico>
+        <NumeroTelefono>68571961</NumeroTelefono>
+        <Direccion>Cobán, Guatemala</Direccion>
+    </solicitante>
+    <solicitante id="IPC-028" pwd="8054">
+        <NombreCompleto>Ana Castillo</NombreCompleto>
+        <CorreoElectronico>ana.castillo@mail.com</CorreoElectronico>
+        <NumeroTelefono>63831631</NumeroTelefono>
+        <Direccion>Antigua Guatemala, Guatemala</Direccion>
+    </solicitante>
+    <solicitante id="IPC-029" pwd="9936">
+        <NombreCompleto>Juan Pérez</NombreCompleto>
+        <CorreoElectronico>juan.pérez@example.com</CorreoElectronico>
+        <NumeroTelefono>68747403</NumeroTelefono>
+        <Direccion>Cobán, Guatemala</Direccion>
+    </solicitante>
+    <solicitante id="IPC-030" pwd="1955">
+        <NombreCompleto>Juan Hernández</NombreCompleto>
+        <CorreoElectronico>juan.hernández@mail.com</CorreoElectronico>
+        <NumeroTelefono>36502278</NumeroTelefono>
+        <Direccion>Quetzaltenango, Guatemala</Direccion>
+    </solicitante>
+</solicitantes>
