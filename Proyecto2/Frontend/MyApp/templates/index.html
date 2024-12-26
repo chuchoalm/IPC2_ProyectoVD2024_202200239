@@ -1,29 +1,167 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ejemplo Django</title>
+    <title>Bienvenido a CeramicArt</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            min-height: 100vh;
+            background: linear-gradient(to bottom, #4a90e2, #357abd);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .container {
+            width: 100%;
+            min-height: 100vh;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .stars {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            background: radial-gradient(circle at 50% 50%, white 1px, transparent 1px);
+            background-size: 50px 50px;
+            animation: drift 300s linear infinite;
+            opacity: 0.3;
+        }
+
+        @keyframes drift {
+            from { transform: translate(0); }
+            to { transform: translate(-50%, -50%); }
+        }
+
+        .mountains {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            z-index: 1;
+        }
+
+        .mountain {
+            height: 250px;
+            transform: skewY(-6deg);
+            transform-origin: left;
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+        }
+
+        .mountain-1 {
+            background-color: rgba(76, 29, 149, 0.3);
+            bottom: 0;
+        }
+
+        .mountain-2 {
+            background-color: rgba(91, 33, 182, 0.3);
+            bottom: 100px;
+        }
+
+        .mountain-3 {
+            background-color: rgba(109, 40, 217, 0.3);
+            bottom: 200px;
+        }
+
+        .welcome-card {
+            width: 100%;
+            max-width: 500px;
+            z-index: 2;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 8px;
+            padding: 2rem;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .logo {
+            width: 120px;
+            height: auto;
+            margin-bottom: 1rem;
+        }
+
+        h1 {
+            font-size: 28px;
+            color: #333;
+            margin-bottom: 1rem;
+        }
+
+        p {
+            font-size: 16px;
+            color: #666;
+            margin-bottom: 2rem;
+            line-height: 1.5;
+        }
+
+        .login-button {
+            display: inline-block;
+            padding: 0.75rem 2rem;
+            background: linear-gradient(to right, #7c3aed, #4a90e2);
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+            font-size: 16px;
+            transition: opacity 0.2s;
+        }
+
+        .login-button:hover {
+            opacity: 0.9;
+        }
+
+        @media (max-width: 600px) {
+            .welcome-card {
+                padding: 1.5rem;
+            }
+
+            h1 {
+                font-size: 24px;
+            }
+
+            p {
+                font-size: 14px;
+            }
+
+            .login-button {
+                padding: 0.6rem 1.5rem;
+                font-size: 14px;
+            }
+        }
+    </style>
 </head>
 <body>
-    <h1>Hola Mundo</h1>
-</body>
-</html><!DOCTYPE html>
-<html>
-<head>
-    <title>Login</title>
-</head>
-<body>
-    <h2>Inicio de Sesión</h2>
-    {% if error %}<p style="color:red">{{ error }}</p>{% endif %}
-    <form method="post">
-        {% csrf_token %}
-        <label for="username">Usuario:</label><br>
-        <input type="text" id="username" name="username"><br>
-        <label for="password">Contraseña:</label><br>
-        <input type="password" id="password" name="password"><br><br>
-        <button type="submit">Ingresar</button>
-    </form>
+    <div class="container">
+        <div class="stars"></div>
+        
+        <div class="mountains">
+            <div class="mountain mountain-1"></div>
+            <div class="mountain mountain-2"></div>
+            <div class="mountain mountain-3"></div>
+        </div>
+
+        <div class="welcome-card">
+            <img class="logo" src="{% static 'images/ipclogo.jpg' %}" alt="Logo USAC">
+            <h1>Bienvenido a IPCArt</h1>
+            <p>Somos la aplicación web dedicada para que puedas diseñar y diseñar bien crazy.</p>
+            <a href="{% url 'login' %}" class="login-button">Ir a Login</a>
+        </div>
+    </div>
 </body>
 </html>

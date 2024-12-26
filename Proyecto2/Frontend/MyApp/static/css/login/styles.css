@@ -1,0 +1,172 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    min-height: 100vh;
+    background: linear-gradient(to bottom, #4a90e2, #357abd);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.container {
+    width: 100%;
+    min-height: 100vh;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+/* Stars Animation */
+.stars {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    background: radial-gradient(circle at 50% 50%, white 1px, transparent 1px);
+    background-size: 50px 50px;
+    animation: drift 300s linear infinite;
+    opacity: 0.3;
+}
+
+@keyframes drift {
+    from { transform: translate(0); }
+    to { transform: translate(-50%, -50%); }
+}
+
+/* Mountains */
+.mountains {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 1;
+}
+
+.mountain {
+    height: 250px;
+    transform: skewY(-6deg);
+    transform-origin: left;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
+
+.mountain-1 {
+    background-color: rgba(76, 29, 149, 0.3);
+    bottom: 0;
+}
+
+.mountain-2 {
+    background-color: rgba(91, 33, 182, 0.3);
+    bottom: 100px;
+}
+
+.mountain-3 {
+    background-color: rgba(109, 40, 217, 0.3);
+    bottom: 200px;
+}
+
+/* Login Card */
+.login-card {
+    width: 100%;
+    max-width: 400px;
+    z-index: 2;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.card-header {
+    background: linear-gradient(to bottom, #7c3aed, #4a90e2);
+    color: white;
+    padding: 2rem;
+    text-align: center;
+}
+
+.card-header h1 {
+    font-size: 24px;
+    margin-bottom: 1rem;
+    letter-spacing: 1px;
+}
+
+.card-header p {
+    font-size: 14px;
+    opacity: 0.9;
+    line-height: 1.5;
+}
+
+.card-body {
+    background: white;
+    padding: 2rem;
+}
+
+.card-body h2 {
+    text-align: center;
+    margin-bottom: 1.5rem;
+    color: #333;
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: #4a5568;
+    font-size: 14px;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid #e2e8f0;
+    border-radius: 4px;
+    background-color: #f7fafc;
+    font-size: 14px;
+}
+
+.form-group input:focus {
+    outline: none;
+    border-color: #4a90e2;
+    box-shadow: 0 0 0 3px rgba(74, 144, 226, 0.1);
+}
+
+.login-btn {
+    width: 100%;
+    padding: 0.75rem;
+    background: linear-gradient(to right, #7c3aed, #4a90e2);
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: opacity 0.2s;
+}
+
+.login-btn:hover {
+    opacity: 0.9;
+}
+
+/* Responsive Design */
+@media (max-width: 480px) {
+    .container {
+        padding: 1rem;
+    }
+    
+    .card-header,
+    .card-body {
+        padding: 1.5rem;
+    }
+    
+
+}

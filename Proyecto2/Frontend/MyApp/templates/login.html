@@ -1,0 +1,52 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/login/styles.css' %}">
+</head>
+<body>
+    <div class="container">
+        <!-- Animated stars -->
+        <div class="stars"></div>
+        
+        <!-- Mountains -->
+        <div class="mountains">
+            <div class="mountain mountain-1"></div>
+            <div class="mountain mountain-2"></div>
+            <div class="mountain mountain-3"></div>
+        </div>
+
+        <!-- Login card -->
+        <div class="login-card">
+            <div class="card-header">
+                <h1>HELLO & WELCOME</h1>
+                <p>BIENBENIDO A IPCART-STUDIO </p>
+            </div>
+
+            <div class="card-body">
+                <h2>USER LOGIN</h2>
+                <form
+                    enctype="multipart/form-data"
+                    method="POST"
+                    action="/signin/"
+                >
+                {# Django utiliza tokens CSRF para asegurarse de que los formularios y las solicitudes POST provienen de una fuente confiable y no de un sitio malintencionado. #}
+                {% csrf_token %}
+                    <div class="form-group">
+                        <label for="iduser"></label>
+                        <input type="text" name="iduser" id="iduser" placeholder="ID" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="password"></label>
+                        <input type="password" name="password" id="password" placeholder="••••••••" required>
+                    </div>
+                    <button type="submit" class="login-btn">Inicia Sesión</button>
+                </form>
+            </div>    
+    </div>
+</body>
+</html>
+

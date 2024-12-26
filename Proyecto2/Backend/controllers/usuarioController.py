@@ -101,8 +101,8 @@ def getUsuariosXML():
         perfil.text = usuario.perfil
         imagenes = ET.SubElement(usuario_xml, 'imagenes')
     
-    xml_str = ET.tostring(tree, encoding='utf-8', xml_declaration=True)
     ET.indent(tree, space='\t', level=0)
+    xml_str = ET.tostring(tree, encoding='utf-8', xml_declaration=True)
     return xml_str
 
 #RUTA: http://localhost:4000/usuarios/login
@@ -121,16 +121,26 @@ def login():
     id = request.json['id']
     password = request.json['password']
 
+    if id == 'admin' and password == 'admin':
+        return jsonify({
+            'message':'Bienvenido admin',
+            'rol':1,
+            'accion': True,
+            'status': 200
+        })
+
     for usuario in lista_usuarios:
         if usuario.id == id and usuario.password == password:
             return jsonify({
-                'message': 'Bienvenido',
+                'message': 'Bienvenido '+usuario.nombre,
+                'rol':2,
                 'accion': True,
                 'status': 200
                 }),200
     
     return jsonify({
         'message': 'Credenciales invalidas',
+        'rol':0,
         'accion': False,
         'status': 200
         }),200
