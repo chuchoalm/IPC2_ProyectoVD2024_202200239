@@ -7,7 +7,7 @@ from django.core.cache import cache
 from django.http import HttpResponse
 from django.shortcuts import redirect, render
 
-from .forms import FileForm, LoginForm
+from .forms import FileForm, LoginForm, TextForm
 
 # Create your views here.
 
@@ -160,3 +160,103 @@ def ayuda(request):
 
 def userPage(request):
     return render(request, 'usuario.html')
+
+def crearPage(request):
+    return render(request, 'crear.html')
+
+def cargarXMLDisenio(request):
+    ctx = {
+        'contenido':None
+    }
+    try:
+        if request.method == 'POST':
+            form = FileForm(request.POST, request.FILES)
+            if form.is_valid():
+                archivo = request.FILES['file']
+                #guardamos el binario
+                xml = archivo.read()
+                xml_decdificado = xml.decode('utf-8')
+                contexto['binario_xml'] = xml
+                contexto['contenido_archivo'] = xml_decdificado
+                ctx['contenido'] = xml_decdificado
+                return render(request, 'crear.html', ctx)
+    except:
+        return render(request, 'crear.html')
+
+def enviarDisenio(request):
+    ctx = {
+        'contenido':None,
+        'imagen':None
+    }
+    try:
+        if request.method == 'POST':
+            xml = contexto['binario_xml']
+            if xml is None:
+                return render(request, 'crear.html')
+            
+            #Obtengo el id del usuario
+            #http://localhost:4000/imagenes/carga/:id_usuario
+            id_user = request.COOKIES.get('id_user')
+            #peticion al backend
+            url = endpoint + 'imagenes/carga/'+id_user
+            respuesta = requests.post(url, data=xml)
+            retorno = respuesta.json()
+
+            ctx['contenido'] = contexto['contenido_archivo']
+            ctx['imagen'] = retorno['matriz']
+
+            contexto['binario_xml'] = None
+            contexto['contenido_archivo'] = None
+            return render(request, 'crear.html', ctx)
+    except:
+        return render(request, 'crear.html',ctx)
+    
+def editarPage(request):
+    return render(request, 'editar.html')
+
+def editarImagen(request):
+    ctx = {
+        'imagen1': None,
+        'imagen2': None
+    }
+
+    try:
+        if request.method == 'POST':
+            form = TextForm(request.POST)
+            if form.is_valid():
+                action = request.POST.get('action')
+                textid = form.cleaned_data['textid']
+                filtro = 0
+
+                if action == 'grayscale':
+                    filtro = 1
+                elif action == 'sepia':
+                    filtro = 2
+
+                data = {
+                    'id': textid,
+                    'filtro': filtro
+                }
+
+                #obtengo el id del usuario
+                id_user = request.COOKIES.get('id_user')
+                #peticion al backend
+                url = endpoint + 'imagenes/editar/' + id_user
+                #convertimos la data a json
+                json_data = json.dumps(data)
+
+                #HEADERS
+                headers = {
+                    'Content-Type':'application/json'
+                }
+
+                #Hacemos la peticion al backend
+                response = requests.post(url, data=json_data, headers=headers)
+
+                respuesta = response.json()
+
+                ctx['imagen1'] = respuesta['matriz1']
+                ctx['imagen2'] = respuesta['matriz2']
+                return render(request, 'editar.html',ctx)
+    except:
+        return render(request, 'editar.html')

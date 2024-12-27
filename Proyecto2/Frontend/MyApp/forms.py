@@ -7,3 +7,6 @@ class LoginForm(forms.Form):
 
 class FileForm(forms.Form):
     file = forms.FileField(label='file')
+
+class TextForm(forms.Form):
+    textid = forms.CharField(label='textid')

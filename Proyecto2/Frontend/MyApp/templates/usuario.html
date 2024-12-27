@@ -1,11 +1,71 @@
+{% load static %}
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Usuario</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/user/base.css' %}">
 </head>
 <body>
-    Hola Usuario
+    <aside class="sidebar" id="sidebar">
+        <button id="sidebar-toggle"> ☰ </button>
+
+        <div class="logo">IpcArt</div>
+        
+        <div class="sidebar-section">
+            <a href="" class="sidebar-item">
+                <img src="https://img.icons8.com/external-others-iconmarket/24/FFFFFF/external-galery-navigation-others-iconmarket-3.png" alt="upload" class="icon">
+                <span class="menu-text">Galeria</span>
+            </a>
+        </div>
+
+        <div class="sidebar-section">
+            <div class="sidebar-title">ÁREA DE DISEÑO</div>
+            <a href="{% url 'crear' %}" class="sidebar-item">
+                <img src="https://img.icons8.com/external-kiranshastry-lineal-kiranshastry/24/FFFFFF/external-image-multimedia-kiranshastry-lineal-kiranshastry-1.png" alt="upload" class="icon">
+                <span class="menu-text">Crear Diseño</span>
+            </a>
+            <a href="{% url 'editar' %}" class="sidebar-item">
+                <img src="https://img.icons8.com/dotty/24/FFFFFF/edit-image.png" alt="edit" class="icon">
+                <span class="menu-text">Editar Diseño</span>
+            </a>
+        </div>
+
+        <div class="sidebar-section">
+            <a href="{% url 'logout' %}" class="sidebar-item">
+                <img src="https://img.icons8.com/ios-glyphs/24/FFFFFF/exit.png" alt="logout" class="icon">
+                <span class="menu-text">Cerrar Sesión</span>
+            </a>
+        </div>
+    </aside>
+
+    <main class="main-content">
+        {% block usercontent %}{% endblock %}
+    </main>
+    <script>
+        const sidebar = document.getElementById('sidebar');
+        const sidebarToggle = document.getElementById('sidebar-toggle');
+        const mainContent = document.querySelector('.main-content');
+
+        sidebarToggle.addEventListener('click', () => {
+            sidebar.classList.toggle('collapsed');
+            if (sidebar.classList.contains('collapsed')) {
+                mainContent.style.marginLeft = 'var(--sidebar-collapsed-width)';
+            } else {
+                mainContent.style.marginLeft = 'var(--sidebar-width)';
+            }
+        });
+
+        // For mobile responsiveness
+        if (window.innerWidth <= 768) {
+            sidebar.classList.add('collapsed');
+            mainContent.style.marginLeft = '0';
+            
+            sidebarToggle.addEventListener('click', () => {
+                sidebar.classList.toggle('active');
+            });
+        }
+    </script>
 </body>
 </html>
