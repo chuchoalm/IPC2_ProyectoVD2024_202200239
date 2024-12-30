@@ -31,7 +31,7 @@ body {
     width: 100%;
     height: 100%;
     pointer-events: none;
-    background: radial-gradient(circle at 50% 50%, white 1px, transparent 1px);
+    background: radial-gradient(circle at 50% 50%, white 3px, transparent 2px);
     background-size: 50px 50px;
     animation: drift 300s linear infinite;
     opacity: 0.3;
@@ -61,7 +61,7 @@ body {
 }
 
 .mountain-1 {
-    background-color: rgba(76, 29, 149, 0.3);
+    background-color: rgba(136, 77, 224, 0.353);
     bottom: 0;
 }
 
@@ -129,9 +129,9 @@ body {
 .form-group input {
     width: 100%;
     padding: 0.75rem;
-    border: 1px solid #e2e8f0;
+    border: 1px solid #fbf705;
     border-radius: 4px;
-    background-color: #f7fafc;
+    background-color: #a8d7f6;
     font-size: 14px;
 }
 

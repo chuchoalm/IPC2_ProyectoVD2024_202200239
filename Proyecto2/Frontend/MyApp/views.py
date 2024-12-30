@@ -263,9 +263,10 @@ def editarImagen(request):
 
 def statsPage(request):
     ctx = {
-        'plot_div': None
+        'plot_div': None,
+        'top_plot_div': None
     }
-    #peticion al backend
+    # Petición al backend
     url = endpoint + 'usuarios/estadistica'
     response = requests.get(url)
 
@@ -273,6 +274,9 @@ def statsPage(request):
 
     usuarios = []
     cantidad_imagenes = []
+    top_usuarios = []
+    top_cantidad_imagenes = []
+
     '''
     [IPC1,IPC2,IPC3,IPC4,IPC5]
     [3,4,6,1,0]
@@ -281,25 +285,48 @@ def statsPage(request):
     for dato in data['data']:
         usuarios.append(dato['id_usuario'])
         cantidad_imagenes.append(dato['imagenes'])
+
+    for top_dato in data['top_usuarios']:
+        top_usuarios.append(top_dato['id_usuario'])
+        top_cantidad_imagenes.append(top_dato['imagenes'])
     
-    #Dibujar mi grafica
+    # Dibujar la gráfica de cantidad de imágenes por usuario
     trace = go.Bar(
         y=cantidad_imagenes,
         x=usuarios
     )
 
     layout = go.Layout(
-        title='Cantidad de imagenes por usuario',
+        title='Cantidad de imágenes por usuario',
         xaxis={
             'title': 'Usuarios',
         },
         yaxis={
-            'title': 'Cantidad de imagenes',
+            'title': 'Cantidad de imágenes',
         }
     )
 
     fig = go.Figure(data=[trace], layout=layout)
     ctx['plot_div'] = pyo.plot(fig, include_plotlyjs=False, output_type='div')
+
+    # Dibujar la gráfica del top 3 usuarios con más imágenes
+    top_trace = go.Bar(
+        y=top_cantidad_imagenes,
+        x=top_usuarios
+    )
+
+    top_layout = go.Layout(
+        title='Top 3 Usuarios con Más Imágenes',
+        xaxis={
+            'title': 'Usuarios',
+        },
+        yaxis={
+            'title': 'Cantidad de imágenes',
+        }
+    )
+
+    top_fig = go.Figure(data=[top_trace], layout=top_layout)
+    ctx['top_plot_div'] = pyo.plot(top_fig, include_plotlyjs=False, output_type='div')
 
     return render(request, 'estadisticas.html', ctx)
     
