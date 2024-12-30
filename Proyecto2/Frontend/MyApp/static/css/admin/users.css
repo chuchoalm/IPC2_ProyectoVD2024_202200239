@@ -17,9 +17,9 @@
 
 .user-card {
     display: flex;
-    background: white;
-    border: 1px solid #e5e7eb;
-    border-radius: 0.5rem;
+    background: rgb(8, 7, 7);
+    border: 1px solid #2cde00;
+    border-radius: 2rem;
     padding: 1.5rem;
 }
 
@@ -55,19 +55,19 @@
 .user-title {
     font-size: 1.25rem;
     font-weight: bold;
-    color: #1f2937;
+    color: #dadee4;
     margin-bottom: 0.5rem;
 }
 
 .user-subtitle {
     font-size: 1rem;
     font-weight: 500;
-    color: #3a3a3a;
+    color: #a22525;
     line-height: 1.5;
 }
 
 .user-description {
-    color: #6b7280;
+    color: #f8ba00;
     font-size: 0.875rem;
     line-height: 1.5;
 }

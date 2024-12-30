@@ -1,6 +1,8 @@
 import os
+import re
 from xml.etree import ElementTree as ET
 
+from controllers.imagenController import preCargarXMLImagenes
 from flask import Blueprint, jsonify, request
 from models.Usuario import Usuario
 
@@ -13,11 +15,21 @@ def cargarUsuarios():
 
     lista_usuarios = preCargarXML()
 
+    def validar_id(id):
+        return id.startswith('IPC-') and id[4:].isdigit()
+
+    def validar_correo(correo):
+        regex = r'^[\w\.-]+@[\w\.-]+\.\w+$'
+        return re.match(regex, correo) is not None
+
+    def validar_telefono(telefono):
+        return telefono.isdigit() and len(telefono) == 8
+
     try:
         xml_entrada = request.data.decode('utf-8')
         if xml_entrada == '':
             return jsonify({
-                'message': 'Error al cargar los usuarios: EL XML está vacio',
+                'message': 'Error al cargar los usuarios: EL XML está vacío',
                 'status': 404
             }), 404
 
@@ -25,7 +37,7 @@ def cargarUsuarios():
 
         for usuario in root:
             id = usuario.attrib['id']
-            if validarRepetido(id, lista_usuarios):
+            if not validar_id(id) or validarRepetido(id, lista_usuarios):
                 continue
             pwd = usuario.attrib['pwd']
             nombre = ''
@@ -45,17 +57,21 @@ def cargarUsuarios():
                 elif hijos.tag == 'perfil':
                     perfil = hijos.text
 
-            nuevo_usuario = Usuario(id,pwd,nombre,correo,telefono,direccion, perfil)
+            if not validar_correo(correo) or not validar_telefono(telefono):
+                continue
+
+            nuevo_usuario = Usuario(id, pwd, nombre, correo, telefono, direccion, perfil)
             lista_usuarios.append(nuevo_usuario)
+        
         crearXML(lista_usuarios)
         return jsonify({
-            'mensaje':'Usuarios cargados con éxito',
-            'status':201
-        }),201
+            'mensaje': 'Usuarios cargados con éxito',
+            'status': 201
+        }), 201
 
-    except:
+    except Exception as e:
         return jsonify({
-            'message': 'Error al cargar los usuarios',
+            'message': f'Error al cargar los usuarios: {str(e)}',
             'status': 404
         }), 404
     
@@ -83,12 +99,15 @@ def getUsuariosJSON():
 #RUTA: http://localhost:4000/usuarios/xml
 @BlueprintUsuario.route('/usuarios/xml', methods=['GET'])
 def getUsuariosXML():
+    lista_imagenes = preCargarXMLImagenes()
     lista_usuarios = preCargarXML()
-    tree = ET.Element('usuarios')
+    root = ET.Element('usuarios')
+    
     for usuario in lista_usuarios:
-        #2. Creamos un elemento usuario
-        usuario_xml = ET.SubElement(tree, 'usuario', id=usuario.id, pwd=usuario.password)
-        #3. Creamos los elementos hijos
+        # Crear un elemento usuario
+        usuario_xml = ET.SubElement(root, 'usuario', id=str(usuario.id), pwd=usuario.password)
+        
+        # Crear los elementos hijos
         nombre = ET.SubElement(usuario_xml, 'NombreCompleto')
         nombre.text = usuario.nombre
         correo = ET.SubElement(usuario_xml, 'CorreoElectronico')
@@ -99,10 +118,21 @@ def getUsuariosXML():
         direccion.text = usuario.direccion
         perfil = ET.SubElement(usuario_xml, 'perfil')
         perfil.text = usuario.perfil
-        imagenes = ET.SubElement(usuario_xml, 'imagenes')
+
+        imagenes_xml = ET.SubElement(usuario_xml, 'imagenes')
+        
+        # Iterar sobre la lista de imagenes del usuario
+        for imagen in lista_imagenes:
+            if imagen.id_usuario == usuario.id:
+                imagen_xml = ET.SubElement(imagenes_xml, 'imagenID', id=str(imagen.id))
+                nombre_imagen = ET.SubElement(imagen_xml, 'nombre')
+                nombre_imagen.text = imagen.nombre
+                editado = ET.SubElement(imagen_xml, 'editado')
+                editado.text = 'true' if imagen.editado else 'false'
     
-    ET.indent(tree, space='\t', level=0)
-    xml_str = ET.tostring(tree, encoding='utf-8', xml_declaration=True)
+    # Formatear el XML con indentación
+    ET.indent(root, space='\t', level=0)
+    xml_str = ET.tostring(root, encoding='utf-8', xml_declaration=True)
     return xml_str
 
 #RUTA: http://localhost:4000/usuarios/login
@@ -145,6 +175,39 @@ def login():
         'status': 200
         }),200
 
+#RUTA: http://localhost:4000/usuarios/galeria
+
+#RUTA: http://localhost:4000/usuarios/estadistica
+@BlueprintUsuario.route('/usuarios/estadistica', methods=['GET'])
+def estadistica():
+    lista_usuarios = preCargarXML()
+    lista_imagenes = preCargarXMLImagenes()
+
+    data_retornar = []
+    '''
+    {
+        'id usuario': ...
+        'imagenes': int
+    }
+    '''
+
+    for usuario in lista_usuarios:
+        id_usuario = usuario.id
+        contador = 0
+        for imagen in lista_imagenes:
+            if imagen.id_usuario == id_usuario:
+                contador += 1
+        
+        data = {
+            'id_usuario': id_usuario,
+            'imagenes': contador
+        }
+        data_retornar.append(data)
+    
+    return jsonify({
+        'data': data_retornar,
+        'status':200
+    }),200
 
 
 def validarRepetido(id, lista_usuarios):
