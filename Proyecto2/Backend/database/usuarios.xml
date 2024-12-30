@@ -1,26 +1,5 @@
 <?xml version='1.0' encoding='utf-8'?>
 <usuarios>
-	<usuario id="IPC-001" pwd="3267">
-		<NombreCompleto>Carlos Ruiz</NombreCompleto>
-		<CorreoElectronico>carlos.ruiz@example.com</CorreoElectronico>
-		<NumeroTelefono>6798429</NumeroTelefono>
-		<Direccion>Ciudad de Guatemala, Guatemala</Direccion>
-		<perfil>https://i.pinimg.com/236x/3a/be/84/3abe8400da18914a7ce19c22744537e0.jpg</perfil>
-	</usuario>
-	<usuario id="IPC-002" pwd="4312">
-		<NombreCompleto>Carlos Ruiz</NombreCompleto>
-		<CorreoElectronico>carlos.ruiz@mail.com</CorreoElectronico>
-		<NumeroTelefono>15336206</NumeroTelefono>
-		<Direccion>Escuintla, Guatemala</Direccion>
-		<perfil>https://i.pinimg.com/236x/37/87/8c/37878cf1464269511640155503ccfc2a.jpg</perfil>
-	</usuario>
-	<usuario id="IPC-003" pwd="1893">
-		<NombreCompleto>Maria Lopez</NombreCompleto>
-		<CorreoElectronico>maria.lopez@mail.com</CorreoElectronico>
-		<NumeroTelefono>23637281</NumeroTelefono>
-		<Direccion>Quetzaltenango, Guatemala</Direccion>
-		<perfil>https://wallpapers.com/images/featured/fotos-de-perfil-de-dibujos-animados-cvyu6zeeolasudk4.jpg</perfil>
-	</usuario>
 	<usuario id="IPC-004" pwd="9153">
 		<NombreCompleto>Camila Sanchez</NombreCompleto>
 		<CorreoElectronico>camila.sanchez@example.com</CorreoElectronico>
@@ -69,5 +48,26 @@
 		<NumeroTelefono>47860837</NumeroTelefono>
 		<Direccion>Quetzaltenango, Guatemala</Direccion>
 		<perfil>https://www.imagella.com/cdn/shop/products/41f93951335372a7234da95f8cf67e76.jpg</perfil>
+	</usuario>
+	<usuario id="IPC-002" pwd="4312">
+		<NombreCompleto>Carlos Ruiz</NombreCompleto>
+		<CorreoElectronico>carlos.ruiz@mail.com</CorreoElectronico>
+		<NumeroTelefono>15336206</NumeroTelefono>
+		<Direccion>Escuintla, Guatemala</Direccion>
+		<perfil>https://i.pinimg.com/236x/37/87/8c/37878cf1464269511640155503ccfc2a.jpg</perfil>
+	</usuario>
+	<usuario id="IPC-003" pwd="1893">
+		<NombreCompleto>Maria Lopez</NombreCompleto>
+		<CorreoElectronico>maria.lopez@mail.com</CorreoElectronico>
+		<NumeroTelefono>23637281</NumeroTelefono>
+		<Direccion>Quetzaltenango, Guatemala</Direccion>
+		<perfil>https://wallpapers.com/images/featured/fotos-de-perfil-de-dibujos-animados-cvyu6zeeolasudk4.jpg</perfil>
+	</usuario>
+	<usuario id="IPC-001" pwd="3267">
+		<NombreCompleto>Carlos Ruiz</NombreCompleto>
+		<CorreoElectronico>carlos.ruiz@example.com</CorreoElectronico>
+		<NumeroTelefono>67984295</NumeroTelefono>
+		<Direccion>Ciudad de Guatemala, Guatemala</Direccion>
+		<perfil>https://i.pinimg.com/236x/3a/be/84/3abe8400da18914a7ce19c22744537e0.jpg</perfil>
 	</usuario>
 </usuarios>

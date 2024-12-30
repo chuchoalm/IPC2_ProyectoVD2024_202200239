@@ -1,5 +1,6 @@
 import json
-
+import plotly.graph_objs as go
+import plotly.offline as pyo
 import requests
 #para el cache
 from django.core.cache import cache
@@ -148,8 +149,7 @@ def verUsuariosXMLPage(request):
     return render(request, 'xmlusers.html', ctx)
 
 def cerrarSesion(request):
-    #si estas usando cache
-    #cache.delete('id_user')
+
     #si estas usando cookies
     response = redirect('login')
     response.delete_cookie('id_user')
@@ -260,3 +260,66 @@ def editarImagen(request):
                 return render(request, 'editar.html',ctx)
     except:
         return render(request, 'editar.html')
+
+def statsPage(request):
+    ctx = {
+        'plot_div': None
+    }
+    #peticion al backend
+    url = endpoint + 'usuarios/estadistica'
+    response = requests.get(url)
+
+    data = response.json()
+
+    usuarios = []
+    cantidad_imagenes = []
+    '''
+    [IPC1,IPC2,IPC3,IPC4,IPC5]
+    [3,4,6,1,0]
+    '''
+
+    for dato in data['data']:
+        usuarios.append(dato['id_usuario'])
+        cantidad_imagenes.append(dato['imagenes'])
+    
+    #Dibujar mi grafica
+    trace = go.Bar(
+        y=cantidad_imagenes,
+        x=usuarios
+    )
+
+    layout = go.Layout(
+        title='Cantidad de imagenes por usuario',
+        xaxis={
+            'title': 'Usuarios',
+        },
+        yaxis={
+            'title': 'Cantidad de imagenes',
+        }
+    )
+
+    fig = go.Figure(data=[trace], layout=layout)
+    ctx['plot_div'] = pyo.plot(fig, include_plotlyjs=False, output_type='div')
+
+    return render(request, 'estadisticas.html', ctx)
+    
+def galeria(request):
+    ctx = {
+        'usuarios': None,
+        'imagenes': None
+    }
+   
+    url_imagenes = endpoint + 'imagenes/galeria'
+    
+    
+    response_imagenes = requests.get(url_imagenes)
+    
+   
+    data_imagenes = response_imagenes.json()
+    
+    
+    ctx['imagenes'] = data_imagenes
+    
+    return render(request,'galery.html', ctx)
+
+

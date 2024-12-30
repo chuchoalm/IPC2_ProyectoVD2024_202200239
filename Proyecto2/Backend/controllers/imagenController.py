@@ -1,7 +1,6 @@
 import os
 from xml.etree import ElementTree as ET
 
-from controllers.usuarioController import preCargarXML
 from flask import Blueprint, jsonify, request
 from models.Imagen import Imagen
 from models.matrizDispersa.matrizDispersa import MatrizDispersa
@@ -59,6 +58,27 @@ def cargaImagen(id_usuario):
             'message': 'Error al cargar la imagen',
             'status': 404
         }), 404
+
+@BlueprintImagen.route('/imagenes/galeria', methods=['GET'])
+def mostrarGaleria():
+    lista_imagenes = preCargarXMLImagenes()
+    
+    imagenes_info = []
+    for imagen in lista_imagenes:
+        # Crear la matriz dispersa para cada imagen
+        matriz = MatrizDispersa()
+        for pixel in imagen.pixeles:
+            matriz.insertar(pixel.fila, pixel.columna, pixel.color)
+        
+        imagen_info = {
+            'id': imagen.id,
+            'id_usuario': imagen.id_usuario,
+            'nombre': imagen.nombre,
+            'matriz': matriz.graficar()  # Graficar la matriz dispersa
+        }
+        imagenes_info.append(imagen_info)
+    
+    return jsonify(imagenes_info)
     
 #RUTA: http://localhost:4000/imagenes/editar/:id_usuario
 @BlueprintImagen.route('/imagenes/editar/<string:id_usuario>', methods=['POST'])
