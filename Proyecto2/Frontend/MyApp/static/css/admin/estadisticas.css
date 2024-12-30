@@ -1,0 +1,83 @@
+.stats-section {
+    max-width: 800px;
+    margin: 0 auto;
+    font-family: 'Arial', sans-serif;
+}
+
+.stats-section h1 {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+    color: #1f2937;
+    font-family: 'Georgia', serif;
+}
+
+.chart-section {
+    margin-bottom: 3rem;
+}
+
+.chart-section h2 {
+    font-size: 1.5rem;
+    color: #1f2937;
+    margin-bottom: 1.5rem;
+    font-family: 'Courier New', monospace;
+}
+
+.chart {
+    display: flex;
+    align-items: flex-end;
+    height: 200px;
+    gap: 1rem;
+    padding: 1rem 0;
+}
+
+.bar {
+    flex: 1;
+    transition: height 0.3s ease;
+}
+
+/* Top 3 Users Chart */
+.top-users .bar:nth-child(1) {
+    height: 100%;
+    background-color: #ff5733;
+}
+
+.top-users .bar:nth-child(2) {
+    height: 80%;
+    background-color: #33ff57;
+}
+
+.top-users .bar:nth-child(3) {
+    height: 60%;
+    background-color: #3357ff;
+}
+
+/* Processed Images Chart */
+.processed-images .bar:nth-child(1) {
+    height: 100%;
+    background-color: #ff5733;
+}
+
+.processed-images .bar:nth-child(2) {
+    height: 85%;
+    background-color: #33ff57;
+}
+
+.processed-images .bar:nth-child(3) {
+    height: 70%;
+    background-color: #3357ff;
+}
+
+.processed-images .bar:nth-child(4) {
+    height: 55%;
+    background-color: #ff33a1;
+}
+
+.processed-images .bar:nth-child(5) {
+    height: 40%;
+    background-color: #33a1ff;
+}
+
+.processed-images .bar:nth-child(6) {
+    height: 25%;
+    background-color: #a133ff;
+}

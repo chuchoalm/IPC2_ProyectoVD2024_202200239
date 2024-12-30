@@ -186,7 +186,7 @@ def estadistica():
     data_retornar = []
     '''
     {
-        'id usuario': ...
+        'id_usuario': ...
         'imagenes': int
     }
     '''
@@ -204,10 +204,17 @@ def estadistica():
         }
         data_retornar.append(data)
     
+    # Ordenar los usuarios por la cantidad de imágenes en orden descendente
+    data_retornar.sort(key=lambda x: x['imagenes'], reverse=True)
+    
+    # Seleccionar los top 3 usuarios
+    top_usuarios = data_retornar[:3]
+
     return jsonify({
         'data': data_retornar,
-        'status':200
-    }),200
+        'top_usuarios': top_usuarios,
+        'status': 200
+    }), 200
 
 
 def validarRepetido(id, lista_usuarios):
