@@ -65,7 +65,7 @@ def mostrarGaleria():
     
     imagenes_info = []
     for imagen in lista_imagenes:
-        # Crear la matriz dispersa para cada imagen
+        
         matriz = MatrizDispersa()
         for pixel in imagen.pixeles:
             matriz.insertar(pixel.fila, pixel.columna, pixel.color)
@@ -74,7 +74,7 @@ def mostrarGaleria():
             'id': imagen.id,
             'id_usuario': imagen.id_usuario,
             'nombre': imagen.nombre,
-            'matriz': matriz.graficar()  # Graficar la matriz dispersa
+            'matriz': matriz.graficar()  
         }
         imagenes_info.append(imagen_info)
     

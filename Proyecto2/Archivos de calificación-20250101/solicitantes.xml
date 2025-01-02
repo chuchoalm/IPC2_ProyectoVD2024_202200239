@@ -1,0 +1,181 @@
+<?xml version='1.0' encoding='utf-8'?>
+<solicitantes>
+    <solicitante id="IPC-000" pwd="1417">
+        <NombreCompleto>Carlos Ruiz</NombreCompleto>
+        <CorreoElectronico>carlosruiz@example.com</CorreoElectronico>
+        <NumeroTelefono>30306453</NumeroTelefono>
+        <Direccion>Ciudad de Guatemala, Guatemala</Direccion>
+        <perfil>https://fastly.picsum.photos/id/102/200/200.jpg?hmac=mLVQr0-wbZ-PRSf_R4oFkUDR7yfIKqT3F8pfJNFZKc0</perfil>
+    </solicitante>
+    <solicitante id="IPC-001" pwd="3626">
+        <NombreCompleto>Maria Lopez</NombreCompleto>
+        <CorreoElectronico>marialopez@example.com</CorreoElectronico>
+        <NumeroTelefono>81356999</NumeroTelefono>
+        <Direccion>Ciudad de Guatemala, Guatemala</Direccion>
+        <perfil>https://fastly.picsum.photos/id/77/200/200.jpg?hmac=RaFJkrixMn3dR7INSPWcmjC7HCxmggmF5mTlMpyEHsQ</perfil>
+    </solicitante>
+    <solicitante id="IPC-002" pwd="4329">
+        <NombreCompleto>Camila Sanchez</NombreCompleto>
+        <CorreoElectronico>camilasanchez@example.com</CorreoElectronico>
+        <NumeroTelefono>33025314</NumeroTelefono>
+        <Direccion>Ciudad de Guatemala, Guatemala</Direccion>
+        <perfil>https://fastly.picsum.photos/id/428/200/200.jpg?hmac=t9FYhwylg9uE-Y2lJluz7aIxlV_-R2FJQZV8UpoOu7M</perfil>
+    </solicitante>
+    <solicitante id="IPC-003" pwd="2882">
+        <NombreCompleto>Diego Torres</NombreCompleto>
+        <CorreoElectronico>diegotorres@example.com</CorreoElectronico>
+        <NumeroTelefono>93964138</NumeroTelefono>
+        <Direccion>Ciudad de Guatemala, Guatemala</Direccion>
+        <perfil>https://fastly.picsum.photos/id/698/200/200.jpg?hmac=EElVlYPe8BAq1Btf4bWUxP9NoQP01_e8LTUzpbdKbgY</perfil>
+    </solicitante>
+    <solicitante id="IPC-004" pwd="6171">
+        <NombreCompleto>Luis Hernandez</NombreCompleto>
+        <CorreoElectronico>luishernandez@example.com</CorreoElectronico>
+        <NumeroTelefono>82375614</NumeroTelefono>
+        <Direccion>Ciudad de Guatemala, Guatemala</Direccion>
+        <perfil>https://fastly.picsum.photos/id/550/200/200.jpg?hmac=1cWp9LPVpvHr7sCXaCMeMnsIHNCLfqPwnIkIA0GUzcM</perfil>
+    </solicitante>
+    <solicitante id="IPC-005" pwd="9198">
+        <NombreCompleto>Ana Morales</NombreCompleto>
+        <CorreoElectronico>anamorales@example.com</CorreoElectronico>
+        <NumeroTelefono>59096099</NumeroTelefono>
+        <Direccion>Ciudad de Guatemala, Guatemala</Direccion>
+        <perfil>https://fastly.picsum.photos/id/890/200/200.jpg?hmac=_chNVuEZW4X8X4PEIIJNyv3kMTFOR517hu8zLfMAf70</perfil>
+    </solicitante>
+    <solicitante id="IPC-006" pwd="3027">
+        <NombreCompleto>Jorge Castillo</NombreCompleto>
+        <CorreoElectronico>jorgecastillo@example.com</CorreoElectronico>
+        <NumeroTelefono>80133685</NumeroTelefono>
+        <Direccion>Ciudad de Guatemala, Guatemala</Direccion>
+        <perfil>https://fastly.picsum.photos/id/739/200/200.jpg?hmac=vjkuMOuAEhToH9GIXkmBicl7sUqPZ3k4rRHh6sQJWZ8</perfil>
+    </solicitante>
+    <solicitante id="IPC-007" pwd="2691">
+        <NombreCompleto>Diana Martinez</NombreCompleto>
+        <CorreoElectronico>dianamartinez@example.com</CorreoElectronico>
+        <NumeroTelefono>20381200</NumeroTelefono>
+        <Direccion>Ciudad de Guatemala, Guatemala</Direccion>
+        <perfil>https://fastly.picsum.photos/id/701/200/200.jpg?hmac=kPmkJLn8J5cv4wQc5yeM7iQpuoq405kTkMTzQ2hb9sM</perfil>
+    </solicitante>
+    <solicitante id="IPC-008" pwd="8118">
+        <NombreCompleto>Roberto Gomez</NombreCompleto>
+        <CorreoElectronico>robertogomez@example.com</CorreoElectronico>
+        <NumeroTelefono>79113519</NumeroTelefono>
+        <Direccion>Ciudad de Guatemala, Guatemala</Direccion>
+        <perfil>https://fastly.picsum.photos/id/229/200/200.jpg?hmac=b3V9uXS2Q1EA1tLHxvWjTgBF4TphN4ibxTjDv2PO2jg</perfil>
+    </solicitante>
+    <solicitante id="IPC-009" pwd="6183">
+        <NombreCompleto>Lucia Fernandez</NombreCompleto>
+        <CorreoElectronico>luciafernandez@example.com</CorreoElectronico>
+        <NumeroTelefono>46905462</NumeroTelefono>
+        <Direccion>Ciudad de Guatemala, Guatemala</Direccion>
+        <perfil>https://fastly.picsum.photos/id/268/200/200.jpg?hmac=I5JAWzISJc5x0jlDhEngvCIwyM0zxRh22iIIzHqOT80</perfil>
+    </solicitante>
+    <solicitante id="IPC-010" pwd="1960">
+        <NombreCompleto>Pablo Vargas</NombreCompleto>
+        <CorreoElectronico>pablovargas@example.com</CorreoElectronico>
+        <NumeroTelefono>40496349</NumeroTelefono>
+        <Direccion>Ciudad de Guatemala, Guatemala</Direccion>
+        <perfil>https://fastly.picsum.photos/id/467/200/200.jpg?hmac=1DxsR7q_iuL1x5DGvv6KSaWR1rN1aawK2Iz0mZx40Mk</perfil>
+    </solicitante>
+    <solicitante id="IPC-011" pwd="9753">
+        <NombreCompleto>Elena Jimenez</NombreCompleto>
+        <CorreoElectronico>elenajimenez@example.com</CorreoElectronico>
+        <NumeroTelefono>88488780</NumeroTelefono>
+        <Direccion>Ciudad de Guatemala, Guatemala</Direccion>
+        <perfil>https://fastly.picsum.photos/id/79/200/200.jpg?hmac=jnCRb6UX5VWA4Kxl91zIBXPa2iJJsmVwzbxrzt6TahQ</perfil>
+    </solicitante>
+    <solicitante id="IPC-012" pwd="2009">
+        <NombreCompleto>Andres Suarez</NombreCompleto>
+        <CorreoElectronico>andressuarez@example.com</CorreoElectronico>
+        <NumeroTelefono>49436556</NumeroTelefono>
+        <Direccion>Ciudad de Guatemala, Guatemala</Direccion>
+        <perfil>https://fastly.picsum.photos/id/1078/200/200.jpg?hmac=lwxKidHp-T5Tcr-StyzEfTYQ-DEZr9SCmTAR86p-Cwc</perfil>
+    </solicitante>
+    <solicitante id="IPC-013" pwd="7887">
+        <NombreCompleto>Paola Ortiz</NombreCompleto>
+        <CorreoElectronico>paolaortiz@example.com</CorreoElectronico>
+        <NumeroTelefono>65037075</NumeroTelefono>
+        <Direccion>Ciudad de Guatemala, Guatemala</Direccion>
+        <perfil>https://fastly.picsum.photos/id/782/200/200.jpg?hmac=Nr26GoCvc_dj_OlbYWA8FscuVWhRo7Qa-f4z6gfbSOU</perfil>
+    </solicitante>
+    <solicitante id="IPC-014" pwd="1812">
+        <NombreCompleto>Julio Ramirez</NombreCompleto>
+        <CorreoElectronico>julioramirez@example.com</CorreoElectronico>
+        <NumeroTelefono>36840714</NumeroTelefono>
+        <Direccion>Ciudad de Guatemala, Guatemala</Direccion>
+        <perfil>https://fastly.picsum.photos/id/533/200/200.jpg?hmac=HvhCl1BSaQrsbedBJm-X8gfnZGp_222QGZ-mYnstPiA</perfil>
+    </solicitante>
+    <solicitante id="IPC-015" pwd="1356">
+        <NombreCompleto>Sofia Delgado</NombreCompleto>
+        <CorreoElectronico>sofiadelgado@example.com</CorreoElectronico>
+        <NumeroTelefono>67842008</NumeroTelefono>
+        <Direccion>Ciudad de Guatemala, Guatemala</Direccion>
+        <perfil>https://fastly.picsum.photos/id/602/200/200.jpg?hmac=UQpVCHEMGI1-S-kt8OQLic6TfuG2elfLbLTNDl1mqZE</perfil>
+    </solicitante>
+    <solicitante id="IPC-016" pwd="2201">
+        <NombreCompleto>Fernando Perez</NombreCompleto>
+        <CorreoElectronico>fernandoperez@example.com</CorreoElectronico>
+        <NumeroTelefono>74753133</NumeroTelefono>
+        <Direccion>Ciudad de Guatemala, Guatemala</Direccion>
+        <perfil>https://fastly.picsum.photos/id/779/200/200.jpg?hmac=qClHBmnKwT7Xt6flSVOh5Ax0tWLRo_gLVmwd4dkSVAo</perfil>
+    </solicitante>
+    <solicitante id="IPC-017" pwd="2399">
+        <NombreCompleto>Isabel Cruz</NombreCompleto>
+        <CorreoElectronico>isabelcruz@example.com</CorreoElectronico>
+        <NumeroTelefono>35053601</NumeroTelefono>
+        <Direccion>Ciudad de Guatemala, Guatemala</Direccion>
+        <perfil>https://fastly.picsum.photos/id/393/200/200.jpg?hmac=1cxlqmpLdS274Utq1s9nhhevcTHNffgX3_0tnKc4Kgw</perfil>
+    </solicitante>
+    <solicitante id="IPC-018" pwd="8836">
+        <NombreCompleto>Miguel Soto</NombreCompleto>
+        <CorreoElectronico>miguelsoto@example.com</CorreoElectronico>
+        <NumeroTelefono>78985996</NumeroTelefono>
+        <Direccion>Ciudad de Guatemala, Guatemala</Direccion>
+        <perfil>https://fastly.picsum.photos/id/639/200/200.jpg?hmac=us3unt6qN8__M3Xg5qmnoqGeKDyMlYUz0VgEANZ7wuo</perfil>
+    </solicitante>
+    <solicitante id="IPC-019" pwd="7860">
+        <NombreCompleto>Laura Torres</NombreCompleto>
+        <CorreoElectronico>lauratorres@example.com</CorreoElectronico>
+        <NumeroTelefono>17675349</NumeroTelefono>
+        <Direccion>Ciudad de Guatemala, Guatemala</Direccion>
+        <perfil>https://fastly.picsum.photos/id/403/200/200.jpg?hmac=GkAppJlJ6MSNvKNo7Hj3Z_I3QTbiwzOtyOJbh6jcZ0U</perfil>
+    </solicitante>
+    <solicitante id="IPC-020" pwd="6391">
+        <NombreCompleto>Ricardo Alvarez</NombreCompleto>
+        <CorreoElectronico>ricardoalvarez@example.com</CorreoElectronico>
+        <NumeroTelefono>61505493</NumeroTelefono>
+        <Direccion>Ciudad de Guatemala, Guatemala</Direccion>
+        <perfil>https://fastly.picsum.photos/id/198/200/200.jpg?hmac=3UdulfE9DTCNBECOusB2ignsI8T-XhkGI-M0P2BMJm8</perfil>
+    </solicitante>
+    <solicitante id="IPC-021" pwd="2720">
+        <NombreCompleto>Valeria Mendoza</NombreCompleto>
+        <CorreoElectronico>valeriamendoza@example.com</CorreoElectronico>
+        <NumeroTelefono>48950010</NumeroTelefono>
+        <Direccion>Ciudad de Guatemala, Guatemala</Direccion>
+        <perfil>https://fastly.picsum.photos/id/444/200/200.jpg?hmac=j2rJG0CKjM3Pmd7gDrCI5-1pYZIh4tjiScLDa5xS_KU</perfil>
+    </solicitante>
+    <!-- Error número de telefono-->
+    <solicitante id="IPC-022" pwd="7270">
+        <NombreCompleto>Oscar Rojas</NombreCompleto>
+        <CorreoElectronico>oscarrojas@example.com</CorreoElectronico>
+        <NumeroTelefono>647248432</NumeroTelefono>
+        <Direccion>Ciudad de Guatemala, Guatemala</Direccion>
+        <perfil>https://fastly.picsum.photos/id/719/200/200.jpg?hmac=WkMnZveCKylVzw33Ui-BNFbah8IQWImYq68wVKznlEo</perfil>
+    </solicitante>
+    <!-- Error de ID -->
+    <solicitante id="VD24-023" pwd="4309">
+        <NombreCompleto>Gabriela Silva</NombreCompleto>
+        <CorreoElectronico>gabrielasilva@example.com</CorreoElectronico>
+        <NumeroTelefono>24548986</NumeroTelefono>
+        <Direccion>Ciudad de Guatemala, Guatemala</Direccion>
+        <perfil>https://fastly.picsum.photos/id/607/200/200.jpg?hmac=ULikjE_L4XAS018UC9F2dCEiYIPKAFUW8oBDI2LzduY</perfil>
+    </solicitante>
+    <!-- Error de Email -->
+    <solicitante id="IPC-024" pwd="4423">
+        <NombreCompleto>Emilio Chavez</NombreCompleto>
+        <CorreoElectronico>emiliochavez@example</CorreoElectronico>
+        <NumeroTelefono>11379429</NumeroTelefono>
+        <Direccion>Ciudad de Guatemala, Guatemala</Direccion>
+        <perfil>https://fastly.picsum.photos/id/994/200/200.jpg?hmac=a0dwH_eftBXVmeonrMy5xNmGDPwiXgXrzUjjUQLEtR8</perfil>
+    </solicitante>
+</solicitantes>
