@@ -1,0 +1,50 @@
+<?xml version='1.0' encoding='utf-8'?>
+<figura>
+  <nombre>Oso Pixel Art Detallado</nombre>
+  <diseño>
+    <!-- Orejas -->
+    <pixel fila="1" col="4">#000000</pixel>
+    <pixel fila="1" col="8">#000000</pixel>
+    <pixel fila="2" col="3">#000000</pixel>
+    <pixel fila="2" col="9">#000000</pixel>
+    <pixel fila="2" col="4">#8B4513</pixel>
+    <pixel fila="2" col="8">#8B4513</pixel>
+
+    <!-- Cabeza -->
+    <pixel fila="3" col="3">#8B4513</pixel>
+    <pixel fila="3" col="4">#8B4513</pixel>
+    <pixel fila="3" col="5">#8B4513</pixel>
+    <pixel fila="3" col="6">#8B4513</pixel>
+    <pixel fila="3" col="7">#8B4513</pixel>
+    <pixel fila="3" col="8">#8B4513</pixel>
+    <pixel fila="4" col="2">#8B4513</pixel>
+    <pixel fila="4" col="3">#8B4513</pixel>
+    <pixel fila="4" col="4">#8B4513</pixel>
+    <pixel fila="4" col="5">#FFFFFF</pixel> <!-- Ojo izquierdo -->
+    <pixel fila="4" col="6">#FFFFFF</pixel> <!-- Ojo derecho -->
+    <pixel fila="4" col="7">#8B4513</pixel>
+    <pixel fila="4" col="8">#8B4513</pixel>
+    <pixel fila="4" col="9">#8B4513</pixel>
+    <pixel fila="5" col="3">#8B4513</pixel>
+    <pixel fila="5" col="4">#8B4513</pixel>
+    <pixel fila="5" col="5">#000000</pixel> <!-- Nariz -->
+    <pixel fila="5" col="6">#000000</pixel>
+    <pixel fila="5" col="7">#8B4513</pixel>
+    <pixel fila="5" col="8">#8B4513</pixel>
+
+    <!-- Cuerpo -->
+    <pixel fila="6" col="3">#8B4513</pixel>
+    <pixel fila="6" col="4">#8B4513</pixel>
+    <pixel fila="6" col="5">#8B4513</pixel>
+    <pixel fila="6" col="6">#8B4513</pixel>
+    <pixel fila="6" col="7">#8B4513</pixel>
+    <pixel fila="7" col="3">#8B4513</pixel>
+    <pixel fila="7" col="4">#8B4513</pixel>
+    <pixel fila="7" col="5">#8B4513</pixel>
+    <pixel fila="7" col="6">#8B4513</pixel>
+    <pixel fila="7" col="7">#8B4513</pixel>
+    <pixel fila="8" col="4">#8B4513</pixel>
+    <pixel fila="8" col="5">#8B4513</pixel>
+    <pixel fila="8" col="6">#8B4513</pixel>
+  </diseño>
+</figura>
